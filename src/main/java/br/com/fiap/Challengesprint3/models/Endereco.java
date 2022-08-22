@@ -1,34 +1,45 @@
 package br.com.fiap.Challengesprint3.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 //import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
-import javax.validation.constraints.NotBlank;
+//import javax.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "T_CLG_ENDERECO")
 public class Endereco {
 
 	@Id
+	@Column(name = "nr_cep")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int cep;
 
-	@NotBlank(message = "Nome da rua não pode estar vazio")
+	@Column(name = "nm_rua")
+	//@NotBlank(message = "Nome da rua não pode estar vazio")
 	@Max(100)
 	private String nomeRua;
 
-	@NotBlank(message = "Número da rua não pode estar vazio")
+	@Column(name = "nr_rua")
+	//@NotBlank(message = "Número da rua não pode estar vazio")
 	@Max(5)
 	private int numeroRua;
 
+	@Column(name = "ds_complemento")
 	@Max(50)
 	private String complemento;
 
 	//Relacao de muitos para um de endereco para Bairro
 	// @ManyToOne
 	// private Bairro bairro;
+
+	public Endereco() {
+		
+	}
 
 	public Endereco(int cep, String nomeRua, int numeroRua, String complemento) {
 		super();

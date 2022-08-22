@@ -2,21 +2,26 @@ package br.com.fiap.Challengesprint3.models;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Max;
 
 @Entity
+@Table(name="T_CLG_BAIRRO")
 public class Bairro {
 
 	@Id
+	@Column(name = "cd_bairro")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codBairro;
 
+	@Column(name = "nm_bairro")
 	@Max(50)
 	private String nomeBairro;
 	
