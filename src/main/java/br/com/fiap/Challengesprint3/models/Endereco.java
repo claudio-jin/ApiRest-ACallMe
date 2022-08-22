@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+//import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 
@@ -27,16 +27,16 @@ public class Endereco {
 	private String complemento;
 
 	//Relacao de muitos para um de endereco para Bairro
-	@ManyToOne
-	private Bairro bairro;
+	// @ManyToOne
+	// private Bairro bairro;
 
-	public Endereco(int cep, String nomeRua, int numeroRua, String complemento, Bairro bairro) {
+	public Endereco(int cep, String nomeRua, int numeroRua, String complemento) {
 		super();
 		this.cep = cep;
 		this.nomeRua = nomeRua;
 		this.numeroRua = numeroRua;
 		this.complemento = complemento;
-		this.bairro = bairro;
+		//this.bairro = bairro;
 	}
 	
 	public int getCep() {
@@ -71,20 +71,20 @@ public class Endereco {
 		this.complemento = complemento;
 	}
 
-	public Bairro getBairro() {
-		return bairro;
-	}
+	// public Bairro getBairro() {
+	// 	return bairro;
+	// }
 
-	public void setBairro(Bairro bairro) {
-		this.bairro = bairro;
-	}
+	// public void setBairro(Bairro bairro) {
+	// 	this.bairro = bairro;
+	// }
 	
 	@Override
 	public String toString() {
 		return "Endereco [cep=" + cep + ", nomeRua=" + nomeRua + ", numeroRua=" + numeroRua + ", complemento="
-				+ complemento + ", bairro=" + bairro.getCodBairro() + "]";
+				+ complemento + "]";
 	}
-
+	//+ ", bairro=" + bairro.getCodBairro() + "
 	
 	
 }
