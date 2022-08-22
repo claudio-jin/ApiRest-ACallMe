@@ -16,30 +16,41 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.Challengesprint3.models.Bairro;
 import br.com.fiap.Challengesprint3.services.BairroService;
+import br.com.fiap.Challengesprint3.services.EnderecoService;
 
 @RestController
 @RequestMapping("/api/bairro")
 public class BairroController {
 
     @Autowired
-    private BairroService service;
+    private BairroService bairroService;
+
+    @Autowired
+    private EnderecoService enderecoService;
 
     @PostMapping
     public ResponseEntity<Bairro> create (@RequestBody @Valid Bairro bairro) {
-        service.save(bairro);
+        bairroService.save(bairro);
         return ResponseEntity
         .status(HttpStatus.CREATED)
         .body(bairro);
     }
 
+    // @PostMapping("{id}")
+    // public void enderecoBairro(@PathVariable Long id) {
+    //     Bairro bairro = bairroService.getById(id);
+
+    // }
+
+
     @GetMapping
     public List<Bairro> index() {
-        return service.listAll();
+        return bairroService.listAll();
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Bairro> show(@PathVariable Long id){
-        return ResponseEntity.of(service.getById(id));
+        return ResponseEntity.of(bairroService.getById(id));
     }
 }
 

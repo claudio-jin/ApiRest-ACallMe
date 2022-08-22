@@ -1,5 +1,6 @@
 package br.com.fiap.Challengesprint3.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,13 +15,14 @@ import javax.validation.constraints.Max;
 
 @Entity
 @Table(name="T_CLG_BAIRRO")
-public class Bairro {
+public class Bairro implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codBairro;
 
-	@Max(50)
 	private String nomeBairro;
 	
 	//Relacao muitos para um de bairro para cidade
@@ -30,6 +32,8 @@ public class Bairro {
 	//Relacao de um para muitos de bairro para endereco
 	@OneToMany
 	private List<Endereco> enderecos;
+
+	public Bairro() {}
 
 	public Bairro(int codBairro, String nomeBairro) {
 		super();

@@ -2,6 +2,7 @@ package br.com.fiap.Challengesprint3.models;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Endereco implements Serializable{
 	private String complemento;
 
 	//Relacao de muitos para um de endereco para Bairro
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Bairro bairro;
 
 	public Endereco() {
