@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.Challengesprint3.models.Endereco;
 import br.com.fiap.Challengesprint3.repository.EnderecoRepository;
@@ -18,6 +19,7 @@ public class EnderecoService {
         return repository.findAll();
     }
 
+    @Transactional
     public void save(Endereco endereco) {
         repository.save(endereco);
     }

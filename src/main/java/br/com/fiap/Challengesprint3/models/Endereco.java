@@ -1,44 +1,38 @@
 package br.com.fiap.Challengesprint3.models;
 
-import javax.persistence.Column;
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-//import javax.persistence.ManyToOne;
-import javax.validation.constraints.Max;
-//import javax.validation.constraints.NotBlank;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "T_CLG_ENDERECO")
-public class Endereco {
+public class Endereco implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "nr_cep")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	private int cep;
 
-	@Column(name = "nm_rua")
-	//@NotBlank(message = "Nome da rua não pode estar vazio")
-	@Max(100)
 	private String nomeRua;
 
-	@Column(name = "nr_rua")
-	//@NotBlank(message = "Número da rua não pode estar vazio")
-	@Max(5)
 	private int numeroRua;
 
-	@Column(name = "ds_complemento")
-	@Max(50)
 	private String complemento;
 
 	//Relacao de muitos para um de endereco para Bairro
-	// @ManyToOne
-	// private Bairro bairro;
+	@ManyToOne
+	private Bairro bairro;
 
 	public Endereco() {
-		
+
 	}
 
 	public Endereco(int cep, String nomeRua, int numeroRua, String complemento) {
@@ -90,11 +84,16 @@ public class Endereco {
 	// 	this.bairro = bairro;
 	// }
 	
-	@Override
-	public String toString() {
-		return "Endereco [cep=" + cep + ", nomeRua=" + nomeRua + ", numeroRua=" + numeroRua + ", complemento="
-				+ complemento + "]";
-	}
+	// @Override
+	// public String toString() {
+	// 	return "Endereco [cep=" + cep + ", nomeRua=" + nomeRua + ", numeroRua=" + numeroRua + ", complemento="
+	// 			+ complemento + "]";
+	// }
+
+		public String toString() {
+			return "Endereco [cep=" + cep + ", complementob " + complemento + "nomeRua" + nomeRua + ", numeroRua=" + numeroRua + "]";
+		}
+
 	//+ ", bairro=" + bairro.getCodBairro() + "
 	
 	
