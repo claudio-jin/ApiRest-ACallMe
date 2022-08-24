@@ -19,8 +19,8 @@ public class BairroService {
         return repository.findAll();
     }
 
-    public void save(Bairro bairro) {
-        repository.save(bairro);
+    public Bairro save(Bairro bairro) {
+        return repository.save(bairro);
     }
 
     public Optional<Bairro> getById(Long id) {

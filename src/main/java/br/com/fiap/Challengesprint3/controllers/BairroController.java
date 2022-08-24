@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.Challengesprint3.models.Bairro;
 import br.com.fiap.Challengesprint3.services.BairroService;
-import br.com.fiap.Challengesprint3.services.EnderecoService;
+//import br.com.fiap.Challengesprint3.services.EnderecoService;
 
 @RestController
 @RequestMapping("/api/bairro")
@@ -25,8 +25,8 @@ public class BairroController {
     @Autowired
     private BairroService bairroService;
 
-    @Autowired
-    private EnderecoService enderecoService;
+    // @Autowired
+    // private EnderecoService enderecoService;
 
     @PostMapping
     public ResponseEntity<Bairro> create (@RequestBody @Valid Bairro bairro) {

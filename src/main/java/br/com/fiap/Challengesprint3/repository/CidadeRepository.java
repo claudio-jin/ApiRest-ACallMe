@@ -1,9 +1,9 @@
-// package br.com.fiap.Challengesprint3.repository;
+package br.com.fiap.Challengesprint3.repository;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-// import br.com.fiap.Challengesprint3.models.Cidade;
+import br.com.fiap.Challengesprint3.models.Cidade;
 
-// public interface CidadeRepository extends JpaRepository<Cidade, Long>{
+public interface CidadeRepository extends JpaRepository<Cidade, Long>{
     
-// }
+}

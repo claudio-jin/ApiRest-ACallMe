@@ -3,15 +3,15 @@ package br.com.fiap.Challengesprint3.models;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
 
 @Entity
 @Table(name="T_CLG_BAIRRO")
@@ -21,13 +21,13 @@ public class Bairro implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codBairro;
+	private Long codBairro;
 
 	private String nomeBairro;
 	
 	//Relacao muitos para um de bairro para cidade
-	// @ManyToOne
-	// private Cidade cidade;
+	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Cidade cidade;
 
 	//Relacao de um para muitos de bairro para endereco
 	@OneToMany
@@ -35,17 +35,22 @@ public class Bairro implements Serializable{
 
 	public Bairro() {}
 
-	public Bairro(int codBairro, String nomeBairro) {
+	public Bairro(String nomeBairro) {
+		super();
+		this.nomeBairro = nomeBairro;
+	}
+
+	public Bairro(Long codBairro, String nomeBairro) {
 		super();
 		this.codBairro = codBairro;
 		this.nomeBairro = nomeBairro;
 	}
 
-	public int getCodBairro() {
+	public Long getCodBairro() {
 		return codBairro;
 	}
 
-	public void setCodBairro(int codBairro) {
+	public void setCodBairro(Long codBairro) {
 		this.codBairro = codBairro;
 	}
 	
@@ -57,17 +62,17 @@ public class Bairro implements Serializable{
 		this.nomeBairro = nomeBairro;
 	}
 
-	// public Cidade getCidade() {
-	// 	return cidade;
-	// }
+	public Cidade getCidade() {
+		return cidade;
+	}
 
-	// public void setCidade(Cidade cidade) {
-	// 	this.cidade = cidade;
-	// }
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
 
 	@Override
 	public String toString() {
-		return "Bairro [codBairro=" + codBairro + ", nomeBairro=" + nomeBairro + "]";
+		return "Bairro nomeBairro=" + nomeBairro + "]";
 	}
 	
     //", cidade=" + cidade.getCodCidade() + 

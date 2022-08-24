@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 
@@ -21,7 +23,7 @@ public class Endereco implements Serializable{
 	private Long id;
 
 	private int cep;
-
+	
 	private String nomeRua;
 
 	private int numeroRua;
@@ -29,20 +31,21 @@ public class Endereco implements Serializable{
 	private String complemento;
 
 	//Relacao de muitos para um de endereco para Bairro
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn()
 	private Bairro bairro;
 
 	public Endereco() {
 
 	}
 
-	public Endereco(int cep, String nomeRua, int numeroRua, String complemento) {
+	public Endereco(int cep, String nomeRua, int numeroRua, String complemento, Bairro bairro) {
 		super();
 		this.cep = cep;
 		this.nomeRua = nomeRua;
 		this.numeroRua = numeroRua;
 		this.complemento = complemento;
-		//this.bairro = bairro;
+		this.bairro = bairro;
 	}
 	
 	public int getCep() {
@@ -77,25 +80,17 @@ public class Endereco implements Serializable{
 		this.complemento = complemento;
 	}
 
-	// public Bairro getBairro() {
-	// 	return bairro;
-	// }
+	public Bairro getBairro() {
+		return bairro;
+	}
 
-	// public void setBairro(Bairro bairro) {
-	// 	this.bairro = bairro;
-	// }
-	
-	// @Override
-	// public String toString() {
-	// 	return "Endereco [cep=" + cep + ", nomeRua=" + nomeRua + ", numeroRua=" + numeroRua + ", complemento="
-	// 			+ complemento + "]";
-	// }
+	public void setBairro(Bairro bairro) {
+		this.bairro = bairro;
+	}
 
-		public String toString() {
-			return "Endereco [cep=" + cep + ", complementob " + complemento + "nomeRua" + nomeRua + ", numeroRua=" + numeroRua + "]";
-		}
+	@Override
+	public String toString() {
+		return "Endereco [cep=" + cep + ", complementob " + complemento + "nomeRua" + nomeRua + ", numeroRua=" + numeroRua + ", bairro=" + "]";
+	}
 
-	//+ ", bairro=" + bairro.getCodBairro() + "
-	
-	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.Challengesprint3.models.Endereco;
+import br.com.fiap.Challengesprint3.repository.BairroRepository;
 import br.com.fiap.Challengesprint3.repository.EnderecoRepository;
 
 @Service
@@ -14,6 +15,9 @@ public class EnderecoService {
     
     @Autowired
     EnderecoRepository repository;
+
+    @Autowired
+    BairroRepository bairroRepository;
 
     public List<Endereco> listAll() {
         return repository.findAll();
