@@ -3,23 +3,18 @@ package br.com.fiap.Challengesprint3.models;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-//import javax.persistence.MappedSuperclass;
+import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-//@MappedSuperclass //faz com que nao crie uma tabela no banco, ja q expecialista so sera usado para herança
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass //faz com que nao crie uma tabela no banco, ja q expecialista so sera usado para herança
 public abstract class Especialista {
 
 	@Id
