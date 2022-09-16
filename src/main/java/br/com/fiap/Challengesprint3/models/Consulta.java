@@ -1,25 +1,37 @@
-// package br.com.fiap.Challengesprint3.models;
+package br.com.fiap.Challengesprint3.models;
 
-// import java.util.Date;
+import java.util.Date;
 
-// import javax.persistence.Entity;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-// import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-// @Data
-// @Entity
-// public class Consulta {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Consulta {
 
-//     private int codConsulta;
-//     private double valorConfirmado;
-//     private Date dtConsulta;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codConsulta;
+    private double valorConfirmado;
+    private Date dtConsulta;
 
-//     //Relacoes a confirmar
-//     private EspecialistaPf espePf;
+    //Relacoes a confirmar
+    // private EspecialistaPf espePf;
 
-//     private EspecialistaPj espePj;
+    // private EspecialistaPj espePj;
 
-//     private Paciente paciente;
+    @OneToOne( cascade = CascadeType.ALL)
+    private Paciente paciente;
 
 
-// }
+}

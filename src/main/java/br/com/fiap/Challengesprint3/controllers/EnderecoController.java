@@ -43,7 +43,6 @@ public class EnderecoController {
 
     @PutMapping("{id}")
     public ResponseEntity<Endereco> updateEnderecoById(@PathVariable Long id, @RequestBody @Valid Endereco novoEndereco){
-		//Retorno optional paciente
         var optional = enderecoService.getById(id);
 
         if(optional.isEmpty()){
