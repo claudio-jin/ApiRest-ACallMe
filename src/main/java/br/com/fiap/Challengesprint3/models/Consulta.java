@@ -1,16 +1,25 @@
-package br.com.fiap.Challengesprint3.models;
+// package br.com.fiap.Challengesprint3.models;
 
-import java.util.Date;
+// import java.util.Date;
 
-import javax.persistence.Entity;
+// import javax.persistence.Entity;
 
-import lombok.Data;
+// import lombok.Data;
 
-@Data
-@Entity
-public class Consulta {
+// @Data
+// @Entity
+// public class Consulta {
 
-    private int codConsulta;
-    private double valorConfirmado;
-    private Date dtConsulta;
-}
+//     private int codConsulta;
+//     private double valorConfirmado;
+//     private Date dtConsulta;
+
+//     //Relacoes a confirmar
+//     private EspecialistaPf espePf;
+
+//     private EspecialistaPj espePj;
+
+//     private Paciente paciente;
+
+
+// }

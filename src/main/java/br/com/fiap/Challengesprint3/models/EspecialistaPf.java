@@ -13,7 +13,7 @@ public class EspecialistaPf extends Especialista{
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	private Long codEspecialistaPf;
-	
+
 	private int cpf;
 	
 	private int digitoCpf;
