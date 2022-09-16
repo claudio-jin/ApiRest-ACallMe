@@ -4,9 +4,11 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
@@ -25,10 +27,11 @@ public class Consulta {
     private double valorConfirmado;
     private Date dtConsulta;
 
-    //Relacoes a confirmar
-    // private EspecialistaPf espePf;
+    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private EspecialistaPf espePf;
 
-    // private EspecialistaPj espePj;
+    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private EspecialistaPj espePj;
 
     @OneToOne( cascade = CascadeType.ALL)
     private Paciente paciente;
