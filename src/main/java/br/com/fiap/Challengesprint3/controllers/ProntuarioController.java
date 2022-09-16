@@ -40,21 +40,21 @@ public class ProntuarioController {
         return service.listAll();
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Prontuario> updateProntuario(@PathVariable Long id, @RequestBody @Valid Prontuario novoProntuario) {
-        var optional = service.getById(id);
+    // @PutMapping("{id}")
+    // public ResponseEntity<Prontuario> updateProntuario(@PathVariable Long id, @RequestBody @Valid Prontuario novoProntuario) {
+    //     var optional = service.getById(id);
 
-        if(optional.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
+    //     if(optional.isEmpty()){
+    //         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	// 	}
 
-        var prontuario = optional.get();
-        BeanUtils.copyProperties(novoProntuario, prontuario);
-        prontuario.setCodProntuario(id);
+    //     var prontuario = optional.get();
+    //     BeanUtils.copyProperties(novoProntuario, prontuario);
+    //     prontuario.setCodProntuario(id);
 
-        service.save(prontuario);
-        return ResponseEntity.ok(prontuario);
-    }
+    //     service.save(prontuario);
+    //     return ResponseEntity.ok(prontuario);
+    // }
 
     @GetMapping("{id}")
     public ResponseEntity<Prontuario> getProntuarioById(@PathVariable Long id){
