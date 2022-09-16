@@ -19,7 +19,7 @@ public class ProntuarioService {
         return repository.findAll();
     }
 
-    public void create(Prontuario prontuario) {
+    public void save(Prontuario prontuario) {
         repository.save(prontuario);
     }
 
@@ -27,7 +27,7 @@ public class ProntuarioService {
         return repository.findById(id);
     }
 
-    public void deleteById(Long id) {
+    public void remove(Long id) {
         repository.deleteById(id);
     }
 }
