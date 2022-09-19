@@ -15,10 +15,7 @@ public class EnderecoService {
     
     @Autowired
     EnderecoRepository repository;
-
-//    @Autowired
-//    BairroRepository bairroRepository;
-
+    
     public List<Endereco> listAll() {
         return repository.findAll();
     }
