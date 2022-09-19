@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @MappedSuperclass //faz com que nao crie uma tabela no banco, ja q especialista so sera usado para herança
 public abstract class Especialista {
 
+	//verificar implementação do uuid
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codEspecialista;
@@ -36,6 +37,7 @@ public abstract class Especialista {
 	
 	private String descricaoSobre;
 	
+	//verificar implementação do big decimal
 	private Double valorConsulta;
 	
 	private String tipoEspecialidade;

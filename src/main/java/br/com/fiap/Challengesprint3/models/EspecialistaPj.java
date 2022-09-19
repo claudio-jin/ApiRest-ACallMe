@@ -7,9 +7,9 @@ import javax.persistence.Entity;
 @Entity
 public class EspecialistaPj extends Especialista{
 	
-	private int cnpj;
+	private Integer cnpj;
 	
-	private int cnpjDigito;
+	private Integer cnpjDigito;
 	
 	private String razaoSocial;
 	
@@ -18,8 +18,8 @@ public class EspecialistaPj extends Especialista{
 	}
 
 	public EspecialistaPj(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			int telefoneDDD, int telefone, String descricaoSobre, double valorConsulta, String tipoEspecialidade,
-			EspecialistaTipo tipo, Genero genero, int cnpj, int cnpjDigito, String razaoSocial) {
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, Double valorConsulta, String tipoEspecialidade,
+			EspecialistaTipo tipo, Genero genero, Integer cnpj, Integer cnpjDigito, String razaoSocial) {
 		super(codEspecialista, nomeEspecialista, email, senha, dtNascimento, telefoneDDD, telefone, descricaoSobre,
 				valorConsulta, tipoEspecialidade, tipo, genero);
 		this.cnpj = cnpj;
@@ -27,19 +27,19 @@ public class EspecialistaPj extends Especialista{
 		this.razaoSocial = razaoSocial;
 	}
 
-	public int getCnpj() {
+	public Integer getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(int cnpj) {
+	public void setCnpj(Integer cnpj) {
 		this.cnpj = cnpj;
 	}
 
-	public int getCnpjDigito() {
+	public Integer getCnpjDigito() {
 		return cnpjDigito;
 	}
 
-	public void setCnpjDigito(int cnpjDigito) {
+	public void setCnpjDigito(Integer cnpjDigito) {
 		this.cnpjDigito = cnpjDigito;
 	}
 
