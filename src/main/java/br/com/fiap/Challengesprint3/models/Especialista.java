@@ -36,7 +36,7 @@ public abstract class Especialista {
 	
 	private String descricaoSobre;
 	
-	private double valorConsulta;
+	private Double valorConsulta;
 	
 	private String tipoEspecialidade;
 	
@@ -51,7 +51,7 @@ public abstract class Especialista {
 	public Especialista() {}
 
 	public Especialista(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			Integer telefoneDDD, Integer telefone, String descricaoSobre, double valorConsulta, String tipoEspecialidade,
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, Double valorConsulta, String tipoEspecialidade,
 			EspecialistaTipo tipo, Genero genero) {
 		super();
 		this.codEspecialista = codEspecialista;
@@ -132,11 +132,11 @@ public abstract class Especialista {
 		this.descricaoSobre = descricaoSobre;
 	}
 
-	public double getValorConsulta() {
+	public Double getValorConsulta() {
 		return valorConsulta;
 	}
 
-	public void setValorConsulta(double valorConsulta) {
+	public void setValorConsulta(Double valorConsulta) {
 		this.valorConsulta = valorConsulta;
 	}
 
