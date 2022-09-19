@@ -23,7 +23,7 @@ public class Prontuario {
     private Long codProntuario;
     private String indentificacao;
     private String queixaPrincipal;
-    private String hda;
+    private String hda; //historico da doença atual
     private String historicoMedico;
     private String antecedenteFamiliar;
     private String habitos;

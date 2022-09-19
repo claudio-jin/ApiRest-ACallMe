@@ -30,9 +30,9 @@ public abstract class Especialista {
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dtNascimento;
 	
-	private int telefoneDDD;
+	private Integer telefoneDDD;
 	
-	private int telefone;
+	private Integer telefone;
 	
 	private String descricaoSobre;
 	
@@ -51,7 +51,7 @@ public abstract class Especialista {
 	public Especialista() {}
 
 	public Especialista(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			int telefoneDDD, int telefone, String descricaoSobre, double valorConsulta, String tipoEspecialidade,
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, double valorConsulta, String tipoEspecialidade,
 			EspecialistaTipo tipo, Genero genero) {
 		super();
 		this.codEspecialista = codEspecialista;
@@ -108,19 +108,19 @@ public abstract class Especialista {
 		this.dtNascimento = dtNascimento;
 	}
 
-	public int getTelefoneDDD() {
+	public Integer getTelefoneDDD() {
 		return telefoneDDD;
 	}
 
-	public void setTelefoneDDD(int telefoneDDD) {
+	public void setTelefoneDDD(Integer telefoneDDD) {
 		this.telefoneDDD = telefoneDDD;
 	}
 
-	public int getTelefone() {
+	public Integer getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(Integer telefone) {
 		this.telefone = telefone;
 	}
 
