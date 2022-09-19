@@ -1,9 +1,9 @@
-package br.com.fiap.Challengesprint3.repository;
+// package br.com.fiap.Challengesprint3.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.fiap.Challengesprint3.models.Bairro;
+// import br.com.fiap.Challengesprint3.models.Bairro;
 
-public interface BairroRepository extends JpaRepository<Bairro, Long>{
+// public interface BairroRepository extends JpaRepository<Bairro, Long>{
     
-}
+// }

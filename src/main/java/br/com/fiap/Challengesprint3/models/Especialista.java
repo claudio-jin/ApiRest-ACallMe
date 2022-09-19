@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -48,7 +49,8 @@ public abstract class Especialista {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Genero genero;
 
-	//	private Endereco endereco;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Endereco endereco;
 	
 	public Especialista() {}
 
@@ -164,6 +166,14 @@ public abstract class Especialista {
 
 	public void setGenero(Genero genero) {
 		this.genero = genero;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	@Override

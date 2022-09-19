@@ -1,32 +1,25 @@
 package br.com.fiap.Challengesprint3.dto;
 
-import br.com.fiap.Challengesprint3.models.Endereco;
-
+//listagem de endereço sem implementaçao de muitos objetos
 public class AllAdressDto {
-    private Endereco endereco;
 
-    public AllAdressDto() {
-        super();
-    }
+    private int cep;
+	
+	private String nomeRua;
 
-    public AllAdressDto(Endereco endereco) {
-        super();
-        this.endereco = endereco;
-    }
+	private int numeroRua;
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
+	private String complemento;
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+    private String nomeBairro;
+    
+    private String nomeCidade;
 
-    @Override
-    public String toString() {
-        return "Endereço: \n Cep: " + endereco.getCep() + " Complemento: " + endereco.getComplemento()
-                + "nomeRua: " + endereco.getNomeRua() + " NumeroRua" + endereco.getNumeroRua() 
-                + "bairro:" + endereco.getBairro().getNomeBairro();
-    }
+	private String sigla;
+
+    private String nomeEstado;
+
+	private String siglaEstado;
+
     
 }
