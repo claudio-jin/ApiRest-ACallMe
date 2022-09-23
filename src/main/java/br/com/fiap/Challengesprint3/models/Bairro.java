@@ -72,9 +72,9 @@ public class Bairro implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Bairro nomeBairro=" + nomeBairro + "]";
+		return "Bairro [cidade=" + cidade + ", codBairro=" + codBairro + ", enderecos=" + enderecos + ", nomeBairro="
+				+ nomeBairro + "]";
 	}
 	
-    //", cidade=" + cidade.getCodCidade() + 
 	
 }

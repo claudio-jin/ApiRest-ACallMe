@@ -11,12 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@MappedSuperclass //faz com que nao crie uma tabela no banco, ja q expecialista so sera usado para herança
+@MappedSuperclass //faz com que nao crie uma tabela no banco, ja q especialista so sera usado para herança
 public abstract class Especialista {
 
+	//verificar implementação do uuid
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codEspecialista;
@@ -30,13 +32,14 @@ public abstract class Especialista {
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dtNascimento;
 	
-	private int telefoneDDD;
+	private Integer telefoneDDD;
 	
-	private int telefone;
+	private Integer telefone;
 	
 	private String descricaoSobre;
 	
-	private double valorConsulta;
+	//verificar implementação do big decimal
+	private Double valorConsulta;
 	
 	private String tipoEspecialidade;
 	
@@ -46,12 +49,13 @@ public abstract class Especialista {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Genero genero;
 
-	//	private Endereco endereco;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Endereco endereco;
 	
 	public Especialista() {}
 
 	public Especialista(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			int telefoneDDD, int telefone, String descricaoSobre, double valorConsulta, String tipoEspecialidade,
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, Double valorConsulta, String tipoEspecialidade,
 			EspecialistaTipo tipo, Genero genero) {
 		super();
 		this.codEspecialista = codEspecialista;
@@ -108,19 +112,19 @@ public abstract class Especialista {
 		this.dtNascimento = dtNascimento;
 	}
 
-	public int getTelefoneDDD() {
+	public Integer getTelefoneDDD() {
 		return telefoneDDD;
 	}
 
-	public void setTelefoneDDD(int telefoneDDD) {
+	public void setTelefoneDDD(Integer telefoneDDD) {
 		this.telefoneDDD = telefoneDDD;
 	}
 
-	public int getTelefone() {
+	public Integer getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(Integer telefone) {
 		this.telefone = telefone;
 	}
 
@@ -132,11 +136,11 @@ public abstract class Especialista {
 		this.descricaoSobre = descricaoSobre;
 	}
 
-	public double getValorConsulta() {
+	public Double getValorConsulta() {
 		return valorConsulta;
 	}
 
-	public void setValorConsulta(double valorConsulta) {
+	public void setValorConsulta(Double valorConsulta) {
 		this.valorConsulta = valorConsulta;
 	}
 
@@ -162,6 +166,14 @@ public abstract class Especialista {
 
 	public void setGenero(Genero genero) {
 		this.genero = genero;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package br.com.fiap.Challengesprint3.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -17,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.Challengesprint3.dto.EnderecoDtos.EnderecoDto;
 import br.com.fiap.Challengesprint3.models.Endereco;
 import br.com.fiap.Challengesprint3.services.EnderecoService;
 
+//classe teste de endereco
 @RestController
 @RequestMapping("/api/endereco")
 public class EnderecoController {
@@ -39,6 +42,14 @@ public class EnderecoController {
     @GetMapping
     public List<Endereco> index() {
         return enderecoService.listAll();
+    }
+
+    @GetMapping("/enderecoDto")
+    public List<EnderecoDto> getEnderecoDto() {
+        List<Endereco> enderecos = enderecoService.listAll();
+        List<EnderecoDto> enderecoDto = enderecos.stream().map(endereco -> new EnderecoDto(endereco)).collect(Collectors.toList());
+
+        return enderecoDto;
     }
 
     @PutMapping("{id}")

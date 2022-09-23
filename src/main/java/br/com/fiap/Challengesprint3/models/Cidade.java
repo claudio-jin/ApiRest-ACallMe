@@ -1,7 +1,5 @@
 package br.com.fiap.Challengesprint3.models;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,9 +23,6 @@ public class Cidade {
 	
 	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Estado estado;
-
-	@OneToMany
-	private List<Bairro> bairros;
 
     public Cidade() {}
 
@@ -71,16 +65,13 @@ public class Cidade {
 		this.estado = estado;
 	}
 
-	// @Override
-	// public String toString() {
-	// 	return "Cidade [codCidade=" + codCidade + ", nomeCidade=" + nomeCidade + ", sigla=" + sigla + ", estado="
-	// 			+ estado.getCodEstado() + "]";
-	// }
+	@Override
+	public String toString() {
+		return "Cidade [codCidade=" + codCidade + ", estado=" + estado + ", nomeCidade=" + nomeCidade + ", sigla="
+				+ sigla + "]";
+	}
 
-    @Override
-    public String toString() {
-        return "Cidade [codCidade=" + codCidade + ", nomeCidade=" + nomeCidade + ", sigla=" + sigla;
-    }
 	
 	
+
 }

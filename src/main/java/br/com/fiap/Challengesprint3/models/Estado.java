@@ -19,18 +19,18 @@ public class Estado {
 
 	private String nomeEstado;
 
-	private String sigla;
+	private String siglaEstado;
 
 	@OneToMany
 	private List<Cidade> cidades;
 
 	public Estado () {}
 	
-	public Estado(int codEstado, String nomeEstado, String sigla) {
+	public Estado(int codEstado, String nomeEstado, String siglaEstado) {
 		super();
 		this.codEstado = codEstado;
 		this.nomeEstado = nomeEstado;
-		this.sigla = sigla;
+		this.siglaEstado = siglaEstado;
 	}
 	public int getCodEstado() {
 		return codEstado;
@@ -44,15 +44,15 @@ public class Estado {
 	public void setNomeEstado(String nomeEstado) {
 		this.nomeEstado = nomeEstado;
 	}
-	public String getSigla() {
-		return sigla;
+	public String getSiglaEstado() {
+		return siglaEstado;
 	}
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setSiglaEstado(String siglaEstado) {
+		this.siglaEstado = siglaEstado;
 	}
 	@Override
 	public String toString() {
-		return "Estado [estado=" + codEstado + ", nomeEstado=" + nomeEstado + ", sigla=" + sigla + "]";
+		return "Estado [estado=" + codEstado + ", nomeEstado=" + nomeEstado + ", sigla=" + siglaEstado + "]";
 	}
 	
 }

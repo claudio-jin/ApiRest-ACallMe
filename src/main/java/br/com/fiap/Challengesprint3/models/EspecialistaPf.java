@@ -3,43 +3,40 @@ package br.com.fiap.Challengesprint3.models;
 import java.util.Date;
 
 import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
 
 @Entity
 public class EspecialistaPf extends Especialista{
 
-	private int cpf;
+	private Integer cpf;
 	
-	private int digitoCpf;
+	private Integer digitoCpf;
 	
 	public EspecialistaPf() {
 		
 	}
 
 	public EspecialistaPf(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			int telefoneDDD, int telefone, String descricaoSobre, double valorConsulta, String tipoEspecialidade,
-			EspecialistaTipo tipo, Genero genero, int cpf, int digitoCpf) {
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, Double valorConsulta, String tipoEspecialidade,
+			EspecialistaTipo tipo, Genero genero, Integer cpf, Integer digitoCpf) {
 		super(codEspecialista, nomeEspecialista, email, senha, dtNascimento, telefoneDDD, telefone, descricaoSobre,
 				valorConsulta, tipoEspecialidade, tipo, genero);
 		this.cpf = cpf;
 		this.digitoCpf = digitoCpf;
 	}
 
-	public int getCpf() {
+	public Integer getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(Integer cpf) {
 		this.cpf = cpf;
 	}
 
-	public int getDigitoCpf() {
+	public Integer getDigitoCpf() {
 		return digitoCpf;
 	}
 
-	public void setDigitoCpf(int digitoCpf) {
+	public void setDigitoCpf(Integer digitoCpf) {
 		this.digitoCpf = digitoCpf;
 	}
 

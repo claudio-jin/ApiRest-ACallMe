@@ -2,7 +2,6 @@ package br.com.fiap.Challengesprint3.controllers;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
@@ -18,55 +17,54 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.Challengesprint3.models.EspecialistaPf;
-import br.com.fiap.Challengesprint3.services.EspecialistaPfService;
+import br.com.fiap.Challengesprint3.models.Prontuario;
+import br.com.fiap.Challengesprint3.services.ProntuarioService;
 
 @RestController
-@RequestMapping("/api/especialistaPf")
-public class EspecialistaPfController {
+@RequestMapping("/api/prontuario")
+public class ProntuarioController {
 
-	@Autowired
-	private EspecialistaPfService service;
-	
-	
-	@PostMapping
-	@Transactional
-	public ResponseEntity<EspecialistaPf> create(@RequestBody @Valid EspecialistaPf especialistaPf) {
-		service.save(especialistaPf);
-		return ResponseEntity
-				.status(HttpStatus.CREATED)
-				.body(especialistaPf);
-	}
-	
-	@GetMapping
-    public List<EspecialistaPf> index() {
+    @Autowired
+    ProntuarioService service;
+
+    @PostMapping
+    public ResponseEntity<Prontuario> create(@RequestBody @Valid Prontuario Prontuario) {
+        service.save(Prontuario);
+        return ResponseEntity
+                    .status(HttpStatus.CREATED)
+                    .body(Prontuario);
+    }
+
+    @GetMapping
+    public List<Prontuario> getProntuario() {
         return service.listAll();
     }
-	
-	@PutMapping("{id}")
-    public ResponseEntity<EspecialistaPf> updatePacienteById(@PathVariable Long id, @RequestBody @Valid EspecialistaPf novoEspecialistaPf){
+
+
+    //autenticar apenas para o especialista poder atualizar
+    @PutMapping("{id}")
+    public ResponseEntity<Prontuario> updateProntuario(@PathVariable Long id, @RequestBody @Valid Prontuario novoProntuario) {
         var optional = service.getById(id);
 
         if(optional.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-        var especialistaPf = optional.get();
-        BeanUtils.copyProperties(novoEspecialistaPf, especialistaPf);
-        especialistaPf.setCodEspecialista(id);
 
-        service.save(especialistaPf);
-        return ResponseEntity.ok(especialistaPf);
+        var prontuario = optional.get();
+        BeanUtils.copyProperties(novoProntuario, prontuario);
+        prontuario.setCodProntuario(id);
+
+        service.save(prontuario);
+        return ResponseEntity.ok(prontuario);
     }
 
-
-	@GetMapping("{id}")
-    public ResponseEntity<EspecialistaPf> getEspecialistaPfById(@PathVariable Long id){
+    @GetMapping("{id}")
+    public ResponseEntity<Prontuario> getProntuarioById(@PathVariable Long id){
         return ResponseEntity.of(service.getById(id));
     }
 
-	//Remoção de especialistapf pelo id
-	@DeleteMapping("{id}")
-    public ResponseEntity<Object> deleteEspecialistaPfById(@PathVariable Long id){
+    @DeleteMapping("{id}")
+    public ResponseEntity<Object> deleteProntuarioById(@PathVariable Long id){
         var optional = service.getById(id);
 
         if(optional.isEmpty()) {
@@ -76,6 +74,4 @@ public class EspecialistaPfController {
     	service.remove(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
-
 }
