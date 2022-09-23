@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Consulta {
 
@@ -18,6 +20,8 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codConsulta;
     private double valorConfirmado;
+
+	@JsonFormat(pattern="dd/MM/yyyy")
     private Date dtConsulta;
 
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)

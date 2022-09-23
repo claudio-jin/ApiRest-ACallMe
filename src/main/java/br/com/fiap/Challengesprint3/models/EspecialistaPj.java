@@ -27,6 +27,8 @@ public class EspecialistaPj extends Especialista{
 		this.razaoSocial = razaoSocial;
 	}
 
+	
+
 	public Integer getCnpj() {
 		return cnpj;
 	}
