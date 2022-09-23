@@ -34,6 +34,7 @@ public class EnderecoDto {
 	public EnderecoDto(Endereco endereco) {
 		this.cep = endereco.getCep();
 		this.nomeRua = endereco.getNomeRua();
+		this.numeroRua = endereco.getNumeroRua();
 		this.complemento = endereco.getComplemento();
 		this.nomeBairro = endereco.getBairro().getNomeBairro();
 		this.nomeCidade = endereco.getBairro().getCidade().getNomeCidade();

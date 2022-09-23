@@ -71,16 +71,20 @@ public class Cidade {
 		this.estado = estado;
 	}
 
-	// @Override
-	// public String toString() {
-	// 	return "Cidade [codCidade=" + codCidade + ", nomeCidade=" + nomeCidade + ", sigla=" + sigla + ", estado="
-	// 			+ estado.getCodEstado() + "]";
-	// }
+	public List<Bairro> getBairros() {
+		return bairros;
+	}
 
-    @Override
-    public String toString() {
-        return "Cidade [codCidade=" + codCidade + ", nomeCidade=" + nomeCidade + ", sigla=" + sigla;
-    }
+	public void setBairros(List<Bairro> bairros) {
+		this.bairros = bairros;
+	}
+
+	@Override
+	public String toString() {
+		return "Cidade [bairros=" + bairros + ", codCidade=" + codCidade + ", estado=" + estado + ", nomeCidade="
+				+ nomeCidade + ", sigla=" + sigla + "]";
+	}
 	
 	
+
 }

@@ -1,6 +1,7 @@
 package br.com.fiap.Challengesprint3.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteDadosDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
 import br.com.fiap.Challengesprint3.services.PacienteService;
 
@@ -64,6 +66,13 @@ public class PacienteController {
     public ResponseEntity<Paciente> getPacientById(@PathVariable Long id){
         return ResponseEntity.of(pacienteService.getById(id));
     }
+
+	@GetMapping("/pacienteDto")
+	public List<PacienteDadosDto> getPacienteDto() {
+		List<Paciente> pacientes = pacienteService.listAll();
+		List<PacienteDadosDto> dto = pacientes.stream().map(paciente -> new PacienteDadosDto(paciente)).collect(Collectors.toList());
+		return dto;
+	}
 
 	//Remoção de paciente pelo id
 	@DeleteMapping("{id}")

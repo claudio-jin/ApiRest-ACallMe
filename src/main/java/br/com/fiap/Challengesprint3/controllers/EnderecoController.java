@@ -22,6 +22,7 @@ import br.com.fiap.Challengesprint3.dto.EnderecoDtos.EnderecoDto;
 import br.com.fiap.Challengesprint3.models.Endereco;
 import br.com.fiap.Challengesprint3.services.EnderecoService;
 
+//classe teste de endereco
 @RestController
 @RequestMapping("/api/endereco")
 public class EnderecoController {
@@ -49,7 +50,6 @@ public class EnderecoController {
         List<EnderecoDto> enderecoDto = enderecos.stream().map(endereco -> new EnderecoDto(endereco)).collect(Collectors.toList());
 
         return enderecoDto;
-
     }
 
     @PutMapping("{id}")
