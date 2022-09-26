@@ -43,7 +43,7 @@ public class PacienteDadosDto {
     
     private String nomeCidade;
 
-	private String sigla;
+	private String siglaCidade;
 
     private String nomeEstado;
 
@@ -69,7 +69,7 @@ public class PacienteDadosDto {
 		this.complemento = paciente.getEndereco().getComplemento();
 		this.nomeBairro = paciente.getEndereco().getBairro().getNomeBairro();
 		this.nomeCidade = paciente.getEndereco().getBairro().getCidade().getNomeCidade();
-		this.sigla = paciente.getEndereco().getBairro().getCidade().getSiglaCidade();
+		this.siglaCidade = paciente.getEndereco().getBairro().getCidade().getSiglaCidade();
 		this.nomeEstado = paciente.getEndereco().getBairro().getCidade().getEstado().getNomeEstado();
 		this.siglaEstado = paciente.getEndereco().getBairro().getCidade().getEstado().getSiglaEstado();
     }
@@ -202,12 +202,12 @@ public class PacienteDadosDto {
         this.nomeCidade = nomeCidade;
     }
 
-    public String getSigla() {
-        return sigla;
+    public String getSiglaCidade() {
+        return siglaCidade;
     }
 
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
+    public void setSiglaCidade(String siglaCidade) {
+        this.siglaCidade = siglaCidade;
     }
 
     public String getNomeEstado() {
