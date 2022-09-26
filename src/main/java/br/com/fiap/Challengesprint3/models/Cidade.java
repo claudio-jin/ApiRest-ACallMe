@@ -20,7 +20,7 @@ public class Cidade implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codCidade;
+	private Integer codCidade;
 
 	private String nomeCidade;
 
@@ -31,18 +31,18 @@ public class Cidade implements Serializable{
 
     public Cidade() {}
 
-	public Cidade(int codCidade, String nomeCidade, String siglaCidade) {
+	public Cidade(Integer codCidade, String nomeCidade, String siglaCidade) {
 		super();
 		this.codCidade = codCidade;
 		this.nomeCidade = nomeCidade;
 		this.siglaCidade = siglaCidade;
 	}
 
-	public int getCodCidade() {
+	public Integer getCodCidade() {
 		return codCidade;
 	}
 
-	public void setCodCidade(int codCidade) {
+	public void setCodCidade(Integer codCidade) {
 		this.codCidade = codCidade;
 	}
 

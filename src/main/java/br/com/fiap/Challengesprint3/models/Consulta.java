@@ -19,7 +19,7 @@ public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codConsulta;
-    private double valorConfirmado;
+    private Double valorConfirmado;
 
 	@JsonFormat(pattern="dd/MM/yyyy")
     private Date dtConsulta;
@@ -37,7 +37,7 @@ public class Consulta {
         
     }
     
-    public Consulta(Long codConsulta, double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
+    public Consulta(Long codConsulta, Double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
             EspecialistaPj espePj, Paciente paciente) {
         this.codConsulta = codConsulta;
         this.valorConfirmado = valorConfirmado;
@@ -55,11 +55,11 @@ public class Consulta {
         this.codConsulta = codConsulta;
     }
 
-    public double getValorConfirmado() {
+    public Double getValorConfirmado() {
         return valorConfirmado;
     }
 
-    public void setValorConfirmado(double valorConfirmado) {
+    public void setValorConfirmado(Double valorConfirmado) {
         this.valorConfirmado = valorConfirmado;
     }
 

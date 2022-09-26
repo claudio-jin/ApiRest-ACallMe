@@ -27,13 +27,13 @@ public class Paciente {
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dtNascimento;
 	
-	private int cpf;
+	private Integer cpf;
 	
-	private int digitoCpf;
+	private Integer digitoCpf;
 	
-	private int telefoneDDD;
+	private Integer telefoneDDD;
 	
-	private int telefone;
+	private Integer telefone;
 	
 	private String estadoCivil;
 	
@@ -49,8 +49,8 @@ public class Paciente {
 		
 	}
 
-	public Paciente(Long id, String nomePaciente, String email, Date dtNascimento, int cpf, int digitoCpf,
-			int telefoneDDD, int telefone, String estadoCivil, String profissao, Genero genero, Endereco endereco) {
+	public Paciente(Long id, String nomePaciente, String email, Date dtNascimento, Integer cpf, Integer digitoCpf,
+			Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao, Genero genero, Endereco endereco) {
 		super();
 		this.id = id;
 		this.nomePaciente = nomePaciente;
@@ -98,35 +98,35 @@ public class Paciente {
 		this.dtNascimento = dtNascimento;
 	}
 
-	public int getCpf() {
+	public Integer getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(Integer cpf) {
 		this.cpf = cpf;
 	}
 
-	public int getDigitoCpf() {
+	public Integer getDigitoCpf() {
 		return digitoCpf;
 	}
 
-	public void setDigitoCpf(int digitoCpf) {
+	public void setDigitoCpf(Integer digitoCpf) {
 		this.digitoCpf = digitoCpf;
 	}
 
-	public int getTelefoneDDD() {
+	public Integer getTelefoneDDD() {
 		return telefoneDDD;
 	}
 
-	public void setTelefoneDDD(int telefoneDDD) {
+	public void setTelefoneDDD(Integer telefoneDDD) {
 		this.telefoneDDD = telefoneDDD;
 	}
 
-	public int getTelefone() {
+	public Integer getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(Integer telefone) {
 		this.telefone = telefone;
 	}
 

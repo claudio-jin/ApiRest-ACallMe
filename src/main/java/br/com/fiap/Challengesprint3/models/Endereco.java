@@ -22,11 +22,11 @@ public class Endereco implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private int cep;
+	private Integer cep;
 	
 	private String nomeRua; 
 
-	private int numeroRua;
+	private Integer numeroRua;
 
 	private String complemento;
 
@@ -39,7 +39,7 @@ public class Endereco implements Serializable{
 
 	}
 
-	public Endereco(int cep, String nomeRua, int numeroRua, String complemento, Bairro bairro) {
+	public Endereco(Integer cep, String nomeRua, Integer numeroRua, String complemento, Bairro bairro) {
 		super();
 		this.cep = cep;
 		this.nomeRua = nomeRua;
@@ -56,11 +56,11 @@ public class Endereco implements Serializable{
 		this.id = id;
 	}
 	
-	public int getCep() {
+	public Integer getCep() {
 		return cep;
 	}
 	
-	public void setCep(int cep) {
+	public void setCep(Integer cep) {
 		this.cep = cep;
 	}
 	
@@ -72,11 +72,11 @@ public class Endereco implements Serializable{
 		this.nomeRua = nomeRua;
 	}
 	
-	public int getNumeroRua() {
+	public Integer getNumeroRua() {
 		return numeroRua;
 	}
 	
-	public void setNumeroRua(int numeroRua) {
+	public void setNumeroRua(Integer numeroRua) {
 		this.numeroRua = numeroRua;
 	}
 	

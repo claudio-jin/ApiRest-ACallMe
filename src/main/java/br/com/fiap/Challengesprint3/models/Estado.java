@@ -18,7 +18,7 @@ public class Estado implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codEstado;
+	private Integer codEstado;
 
 	private String nomeEstado;
 
@@ -29,16 +29,16 @@ public class Estado implements Serializable{
 
 	public Estado () {}
 	
-	public Estado(int codEstado, String nomeEstado, String siglaEstado) {
+	public Estado(Integer codEstado, String nomeEstado, String siglaEstado) {
 		super();
 		this.codEstado = codEstado;
 		this.nomeEstado = nomeEstado;
 		this.siglaEstado = siglaEstado;
 	}
-	public int getCodEstado() {
+	public Integer getCodEstado() {
 		return codEstado;
 	}
-	public void setEstado(int codEstado) {
+	public void setEstado(Integer codEstado) {
 		this.codEstado = codEstado;
 	}
 	public String getNomeEstado() {
