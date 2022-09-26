@@ -69,7 +69,7 @@ public class PacienteDadosDto {
 		this.complemento = paciente.getEndereco().getComplemento();
 		this.nomeBairro = paciente.getEndereco().getBairro().getNomeBairro();
 		this.nomeCidade = paciente.getEndereco().getBairro().getCidade().getNomeCidade();
-		this.sigla = paciente.getEndereco().getBairro().getCidade().getSigla();
+		this.sigla = paciente.getEndereco().getBairro().getCidade().getSiglaCidade();
 		this.nomeEstado = paciente.getEndereco().getBairro().getCidade().getEstado().getNomeEstado();
 		this.siglaEstado = paciente.getEndereco().getBairro().getCidade().getEstado().getSiglaEstado();
     }

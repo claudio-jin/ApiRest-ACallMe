@@ -1,5 +1,6 @@
 package br.com.fiap.Challengesprint3.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_CLG_ESTADO")
-public class Estado {
+public class Estado implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

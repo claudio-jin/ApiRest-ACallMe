@@ -44,6 +44,12 @@ public class EnderecoController {
         return enderecoService.listAll();
     }
 
+    // @GetMapping("/enderecoDto")
+    // public List<EnderecoDto> getEnderecoDto() {
+    //     return enderecoService.listEnderecoDto();
+    // }
+
+
     @GetMapping("/enderecoDto")
     public List<EnderecoDto> getEnderecoDto() {
         List<Endereco> enderecos = enderecoService.listAll();

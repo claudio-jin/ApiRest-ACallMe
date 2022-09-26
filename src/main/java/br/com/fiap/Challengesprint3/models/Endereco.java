@@ -24,7 +24,7 @@ public class Endereco implements Serializable{
 
 	private int cep;
 	
-	private String nomeRua;
+	private String nomeRua; 
 
 	private int numeroRua;
 
@@ -98,7 +98,7 @@ public class Endereco implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Endereco [cep=" + cep + ", complementob " + complemento + "nomeRua" + nomeRua + ", numeroRua=" + numeroRua + ", bairro=" + "]";
+		return "Endereco [cep=" + cep + ", complementob " + complemento + "nomeRua" + nomeRua + ", numeroRua=" + numeroRua + ", bairro=" + bairro +"]";
 	}
 
 }
