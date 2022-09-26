@@ -44,6 +44,12 @@ public class Paciente {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private EspecialistaPf especialistaPf;
+
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private EspecialistaPj especialistaPj;
 	
 	public Paciente () {
 		
@@ -161,6 +167,22 @@ public class Paciente {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+		
+	public EspecialistaPf getEspecialistaPf() {
+		return especialistaPf;
+	}
+
+	public void setEspecialistaPf(EspecialistaPf especialistaPf) {
+		this.especialistaPf = especialistaPf;
+	}
+	
+	public EspecialistaPj getEspecialistaPj() {
+		return especialistaPj;
+	}
+	
+	public void setEspecialistaPj(EspecialistaPj especialistaPj) {
+		this.especialistaPj = especialistaPj;
+	}
 
 	@Override
 	public String toString() {
@@ -169,16 +191,4 @@ public class Paciente {
 				+ ", telefone=" + telefone + ", estadoCivil=" + estadoCivil + ", profissao=" + profissao + ", genero="
 				+ genero + "]";
 	}
-
-
-//	@Override
-//	public String toString() {
-//		return "Paciente [id=" + id + ", nomePaciente=" + nomePaciente + ", email=" + email + ", dtNascimento="
-//				+ dtNascimento + ", cpf=" + cpf + ", digitoCpf=" + digitoCpf + ", telefoneDDD=" + telefoneDDD
-//				+ ", telefone=" + telefone + ", estadoCivil=" + estadoCivil + ", profissao=" + profissao + ", genero="
-//				+ genero + ", endereco=" + endereco + "]";
-//	}
-
-	
-    
 }

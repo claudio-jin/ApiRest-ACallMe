@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.Challengesprint3.dto.EspecialistaPfDtos.EspecialistaPfDto;
 import br.com.fiap.Challengesprint3.models.EspecialistaPf;
 import br.com.fiap.Challengesprint3.services.EspecialistaPfService;
 
@@ -42,6 +43,12 @@ public class EspecialistaPfController {
     public List<EspecialistaPf> index() {
         return service.listAll();
     }
+
+    @GetMapping("/especialistaPfDto")
+    public List<EspecialistaPfDto> getEspecialistaPfDto() {
+        return service.getEspecialistaPfDto();
+    }
+
 	
 	@PutMapping("{id}")
     public ResponseEntity<EspecialistaPf> updatePacienteById(@PathVariable Long id, @RequestBody @Valid EspecialistaPf novoEspecialistaPf){

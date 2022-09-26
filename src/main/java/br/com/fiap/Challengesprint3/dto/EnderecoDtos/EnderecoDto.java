@@ -6,11 +6,11 @@ import br.com.fiap.Challengesprint3.models.Endereco;
 public class EnderecoDto {
 
 	//endereco
-    private int cep;
+    private Integer cep;
 	
 	private String nomeRua;
 
-	private int numeroRua;
+	private Integer numeroRua;
 
 	private String complemento;
 

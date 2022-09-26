@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ConsultaDto {
 
-    private double valorConfirmado;
+    private Double valorConfirmado;
 
     private Date dtConsulta;
 
