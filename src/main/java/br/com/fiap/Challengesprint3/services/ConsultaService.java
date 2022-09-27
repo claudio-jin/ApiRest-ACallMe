@@ -1,12 +1,15 @@
 package br.com.fiap.Challengesprint3.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDto;
 import br.com.fiap.Challengesprint3.models.Consulta;
 import br.com.fiap.Challengesprint3.repository.ConsultaRepository;
 
@@ -31,6 +34,13 @@ public class ConsultaService {
 
     public Optional<Consulta> getById(Long id) {
         return repository.findById(id);
+    }
+
+    public List<ConsultaDto> getConsultaDto() {
+        List<Consulta> consulta = repository.findAll();
+        List<ConsultaDto> dto = consulta.stream().map(d -> new ConsultaDto(d)).collect(Collectors.toList());
+
+        return dto;
     }
 
 }

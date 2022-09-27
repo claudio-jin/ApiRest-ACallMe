@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDto;
 import br.com.fiap.Challengesprint3.models.Consulta;
 import br.com.fiap.Challengesprint3.services.ConsultaService;
 
@@ -71,6 +72,11 @@ public class ConsultaController {
 
     	consultaService.remove(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping("/consultaDto") 
+    public List<ConsultaDto> getConsultaDto() {
+        return consultaService.getConsultaDto();
     }
 
 }

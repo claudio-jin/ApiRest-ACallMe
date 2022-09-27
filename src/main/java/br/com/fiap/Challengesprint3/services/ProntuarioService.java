@@ -30,4 +30,6 @@ public class ProntuarioService {
     public void remove(Long id) {
         repository.deleteById(id);
     }
+
+    // public List
 }
