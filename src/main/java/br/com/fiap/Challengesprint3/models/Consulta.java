@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -30,26 +29,37 @@ public class Consulta {
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private EspecialistaPj espePj;
 
-    @OneToOne( cascade = CascadeType.ALL)
-    private Paciente paciente;
+    // @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
+    // private Paciente paciente;
 
     public Consulta() {
         
     }
     
+    // public Consulta(Long codConsulta, Double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
+    //         EspecialistaPj espePj, Paciente paciente) {
+    //     this.codConsulta = codConsulta;
+    //     this.valorConfirmado = valorConfirmado;
+    //     this.dtConsulta = dtConsulta;
+    //     this.espePf = espePf;
+    //     this.espePj = espePj;
+    //     this.paciente = paciente;
+    // }
+
+    
     public Consulta(Long codConsulta, Double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
-            EspecialistaPj espePj, Paciente paciente) {
+            EspecialistaPj espePj) {
         this.codConsulta = codConsulta;
         this.valorConfirmado = valorConfirmado;
         this.dtConsulta = dtConsulta;
         this.espePf = espePf;
         this.espePj = espePj;
-        this.paciente = paciente;
     }
-
+    
     public Long getCodConsulta() {
         return codConsulta;
     }
+
 
     public void setCodConsulta(Long codConsulta) {
         this.codConsulta = codConsulta;
@@ -87,18 +97,18 @@ public class Consulta {
         this.espePj = espePj;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
-    }
+    // public Paciente getPaciente() {
+    //     return paciente;
+    // }
 
-    public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
-    }
+    // public void setPaciente(Paciente paciente) {
+    //     this.paciente = paciente;
+    // }
 
-    @Override
-    public String toString() {
-        return "Consulta [codConsulta=" + codConsulta + ", dtConsulta=" + dtConsulta + ", espePf=" + espePf
-                + ", espePj=" + espePj + ", paciente=" + paciente + ", valorConfirmado=" + valorConfirmado + "]";
-    }
+    // @Override
+    // public String toString() {
+    //     return "Consulta [codConsulta=" + codConsulta + ", dtConsulta=" + dtConsulta + ", espePf=" + espePf
+    //             + ", espePj=" + espePj + ", paciente=" + paciente + ", valorConfirmado=" + valorConfirmado + "]";
+    // }
 
 }
