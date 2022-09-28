@@ -47,12 +47,6 @@ public class Paciente {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private EspecialistaPf especialistaPf;
-
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private EspecialistaPj especialistaPj;
-
 	//Relação consulta para puxar consultas
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Consulta> consulta;
@@ -63,7 +57,7 @@ public class Paciente {
 
 	public Paciente(Long id, String nomePaciente, String email, Date dtNascimento, Integer cpf, Integer digitoCpf,
 			Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao, Genero genero,
-			Endereco endereco, EspecialistaPf especialistaPf, EspecialistaPj especialistaPj, List<Consulta> consulta) {
+			Endereco endereco, List<Consulta> consulta) {
 		this.id = id;
 		this.nomePaciente = nomePaciente;
 		this.email = email;
@@ -76,12 +70,8 @@ public class Paciente {
 		this.profissao = profissao;
 		this.genero = genero;
 		this.endereco = endereco;
-		this.especialistaPf = especialistaPf;
-		this.especialistaPj = especialistaPj;
 		this.consulta = consulta;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -177,22 +167,6 @@ public class Paciente {
 	
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-		
-	public EspecialistaPf getEspecialistaPf() {
-		return especialistaPf;
-	}
-
-	public void setEspecialistaPf(EspecialistaPf especialistaPf) {
-		this.especialistaPf = especialistaPf;
-	}
-	
-	public EspecialistaPj getEspecialistaPj() {
-		return especialistaPj;
-	}
-	
-	public void setEspecialistaPj(EspecialistaPj especialistaPj) {
-		this.especialistaPj = especialistaPj;
 	}
 
 	public List<Consulta> getConsulta() {
