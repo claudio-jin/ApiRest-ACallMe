@@ -81,6 +81,8 @@ public class Paciente {
 		this.consulta = consulta;
 	}
 
+
+
 	public Long getId() {
 		return id;
 	}
@@ -201,14 +203,6 @@ public class Paciente {
 		this.consulta = consulta;
 	}
 
-	@Override
-	public String toString() {
-		return "Paciente [consulta=" + consulta + ", cpf=" + cpf + ", digitoCpf=" + digitoCpf + ", dtNascimento="
-				+ dtNascimento + ", email=" + email + ", endereco=" + endereco + ", especialistaPf=" + especialistaPf
-				+ ", especialistaPj=" + especialistaPj + ", estadoCivil=" + estadoCivil + ", genero=" + genero + ", id="
-				+ id + ", nomePaciente=" + nomePaciente + ", profissao=" + profissao + ", telefone=" + telefone
-				+ ", telefoneDDD=" + telefoneDDD + "]";
-	}
 
 	
 }
