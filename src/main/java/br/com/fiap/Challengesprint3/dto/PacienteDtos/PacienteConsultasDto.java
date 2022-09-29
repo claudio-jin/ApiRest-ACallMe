@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
 
-public class PacienteConsultaEspecialistaDto {
+public class PacienteConsultasDto {
     
     private String nomePaciente;
 	
@@ -36,7 +36,7 @@ public class PacienteConsultaEspecialistaDto {
     //consulta
     private List<ConsultaDto> consultaDto;
     
-    public PacienteConsultaEspecialistaDto(Paciente paciente) {
+    public PacienteConsultasDto(Paciente paciente) {
         this.nomePaciente = paciente.getNomePaciente();
         this.email = paciente.getEmail();
         this.dtNascimento = paciente.getDtNascimento();

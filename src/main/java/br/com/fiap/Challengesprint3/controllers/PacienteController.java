@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultaEspecialistaDto;
+import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteDadosDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
 import br.com.fiap.Challengesprint3.services.PacienteService;
@@ -89,7 +89,7 @@ public class PacienteController {
     }
 
 	@GetMapping("/pacienteConsultaEspecialistaDto")
-	public List<PacienteConsultaEspecialistaDto> getPacienteConsultaEspecialistaDto() {
+	public List<PacienteConsultasDto> getPacienteConsultaEspecialistaDto() {
 		return pacienteService.getPacienteConsultaEspecialista();
 	}
 

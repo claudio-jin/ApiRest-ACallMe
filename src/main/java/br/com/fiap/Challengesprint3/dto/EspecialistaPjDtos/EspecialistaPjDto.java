@@ -30,8 +30,6 @@ public class EspecialistaPjDto {
 
     private Integer cnpjDigito;
 
-    // private Double valorConsulta; //verificar qual valor buscar para ser mapeado
-
     // genero
     private String genero;
 
