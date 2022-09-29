@@ -23,9 +23,11 @@ public class EspecialistaPjDto {
 
     private String descricaoSobre;
 
-    private EspecialistaTipo tipoEspecialidade;
+    private String tipoEspecialidade;
 
-    // especialistaPf
+    private EspecialistaTipo tipo;
+
+    // especialistaPj
     private Integer cnpj;
 
     private Integer cnpjDigito;
@@ -64,7 +66,8 @@ public class EspecialistaPjDto {
         this.telefone = pj.getTelefone();
         this.descricaoSobre = pj.getDescricaoSobre();
         this.descricaoSobre = pj.getDescricaoSobre();
-        this.tipoEspecialidade = pj.getTipo();
+        this.tipoEspecialidade = pj.getTipoEspecialidade();
+        this.tipo = pj.getTipo();
         this.cnpj = pj.getCnpj();
         this.cnpjDigito = pj.getCnpjDigito();
         this.genero = pj.getGenero().getNomeGenero();
@@ -81,7 +84,8 @@ public class EspecialistaPjDto {
     }
 
     public EspecialistaPjDto(Long codEspecialista, String nomeEspecialista, String email, Date dtNascimento,
-            Integer telefoneDDD, Integer telefone, String descricaoSobre, EspecialistaTipo tipoEspecialidade,
+            Integer telefoneDDD, Integer telefone, String descricaoSobre, String tipoEspecialidade,
+            EspecialistaTipo tipo,
             Integer cnpj, Integer cnpjDigito, String genero, Integer cep, String nomeRua, Integer numeroRua,
             String complemento, String nomeBairro, String nomeCidade, String sigla, String nomeEstado,
             String siglaEstado) {
@@ -93,6 +97,7 @@ public class EspecialistaPjDto {
         this.telefone = telefone;
         this.descricaoSobre = descricaoSobre;
         this.tipoEspecialidade = tipoEspecialidade;
+        this.tipo = tipo;
         this.cnpj = cnpj;
         this.cnpjDigito = cnpjDigito;
         this.genero = genero;
@@ -163,12 +168,20 @@ public class EspecialistaPjDto {
         this.descricaoSobre = descricaoSobre;
     }
 
-    public EspecialistaTipo getTipoEspecialidade() {
+    public String getTipoEspecialidade() {
         return tipoEspecialidade;
     }
 
-    public void setTipoEspecialidade(EspecialistaTipo tipoEspecialidade) {
+    public void setTipoEspecialidade(String tipoEspecialidade) {
         this.tipoEspecialidade = tipoEspecialidade;
+    }
+
+    public EspecialistaTipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(EspecialistaTipo tipo) {
+        this.tipo = tipo;
     }
 
     public String getGenero() {
