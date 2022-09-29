@@ -1,12 +1,9 @@
 package br.com.fiap.Challengesprint3.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Prontuario {
@@ -21,17 +18,12 @@ public class Prontuario {
     private String antecedenteFamiliar;
     private String habitos;
 
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Consulta codConsulta;
-
-
     public Prontuario() {
 
     }
 
     public Prontuario(Long codProntuario, String indentificacao, String queixaPrincipal, String hda,
-            String historicoMedico, String antecedenteFamiliar, String habitos, Consulta codConsulta) {
+            String historicoMedico, String antecedenteFamiliar, String habitos) {
         this.codProntuario = codProntuario;
         this.indentificacao = indentificacao;
         this.queixaPrincipal = queixaPrincipal;
@@ -39,7 +31,6 @@ public class Prontuario {
         this.historicoMedico = historicoMedico;
         this.antecedenteFamiliar = antecedenteFamiliar;
         this.habitos = habitos;
-        this.codConsulta = codConsulta;
     }
 
     public Long getCodProntuario() {
@@ -97,24 +88,4 @@ public class Prontuario {
     public void setHabitos(String habitos) {
         this.habitos = habitos;
     }
-
-    public Consulta getCodConsulta() {
-        return codConsulta;
-    }
-
-    public void setCodConsulta(Consulta codConsulta) {
-        this.codConsulta = codConsulta;
-    }
-
-    @Override
-    public String toString() {
-        return "Prontuario [antecedenteFamiliar=" + antecedenteFamiliar + ", codConsulta=" + codConsulta
-                + ", codProntuario=" + codProntuario + ", habitos=" + habitos + ", hda=" + hda + ", historicoMedico="
-                + historicoMedico + ", indentificacao=" + indentificacao + ", queixaPrincipal=" + queixaPrincipal + "]";
-    }
-
-    
-    
-
-
 }

@@ -15,49 +15,47 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@MappedSuperclass //faz com que nao crie uma tabela no banco, ja q especialista so sera usado para herança
+@MappedSuperclass // faz com que nao crie uma tabela no banco, ja q especialista so sera usado
+					// para herança
 public abstract class Especialista {
 
-	//verificar implementação do uuid
+	// verificar implementação do uuid
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codEspecialista;
-	
+
 	private String nomeEspecialista;
-	
+
 	private String email;
-	
+
 	private String senha;
-	
-	@JsonFormat(pattern="dd/MM/yyyy")
+
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dtNascimento;
-	
+
 	private Integer telefoneDDD;
-	
+
 	private Integer telefone;
-	
+
 	private String descricaoSobre;
-	
-	//verificar implementação do big decimal
-	private Double valorConsulta;
-	
+
 	private String tipoEspecialidade;
-	
+
 	@Enumerated(value = EnumType.STRING)
 	private EspecialistaTipo tipo;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Genero genero;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
-	
-	public Especialista() {}
+
+	public Especialista() {
+	}
 
 	public Especialista(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			Integer telefoneDDD, Integer telefone, String descricaoSobre, Double valorConsulta, String tipoEspecialidade,
-			EspecialistaTipo tipo, Genero genero) {
-		super();
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, String tipoEspecialidade,
+			EspecialistaTipo tipo, Genero genero, Endereco endereco) {
 		this.codEspecialista = codEspecialista;
 		this.nomeEspecialista = nomeEspecialista;
 		this.email = email;
@@ -66,10 +64,10 @@ public abstract class Especialista {
 		this.telefoneDDD = telefoneDDD;
 		this.telefone = telefone;
 		this.descricaoSobre = descricaoSobre;
-		this.valorConsulta = valorConsulta;
 		this.tipoEspecialidade = tipoEspecialidade;
 		this.tipo = tipo;
 		this.genero = genero;
+		this.endereco = endereco;
 	}
 
 	public Long getCodEspecialista() {
@@ -136,14 +134,6 @@ public abstract class Especialista {
 		this.descricaoSobre = descricaoSobre;
 	}
 
-	public Double getValorConsulta() {
-		return valorConsulta;
-	}
-
-	public void setValorConsulta(Double valorConsulta) {
-		this.valorConsulta = valorConsulta;
-	}
-
 	public String getTipoEspecialidade() {
 		return tipoEspecialidade;
 	}
@@ -178,12 +168,10 @@ public abstract class Especialista {
 
 	@Override
 	public String toString() {
-		return "Especialista [codEspecialista=" + codEspecialista + ", nomeEspecialista=" + nomeEspecialista
-				+ ", email=" + email + ", senha=" + senha + ", dtNascimento=" + dtNascimento + ", telefoneDDD="
-				+ telefoneDDD + ", telefone=" + telefone + ", descricaoSobre=" + descricaoSobre + ", valorConsulta="
-				+ valorConsulta + ", tipoEspecialidade=" + tipoEspecialidade + ", genero=" + genero + "]";
+		return "Especialista [codEspecialista=" + codEspecialista + ", descricaoSobre=" + descricaoSobre
+				+ ", dtNascimento=" + dtNascimento + ", email=" + email + ", endereco=" + endereco + ", genero="
+				+ genero + ", nomeEspecialista=" + nomeEspecialista + ", senha=" + senha + ", telefone=" + telefone
+				+ ", telefoneDDD=" + telefoneDDD + ", tipo=" + tipo + ", tipoEspecialidade=" + tipoEspecialidade + "]";
 	}
 
-
-	
 }

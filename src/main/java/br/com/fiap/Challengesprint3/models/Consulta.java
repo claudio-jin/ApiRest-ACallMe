@@ -29,6 +29,10 @@ public class Consulta {
     @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private EspecialistaPj espePj;
 
+    //implementar relacao prontuario
+    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Prontuario prontuario;
+
     // @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
     // private Paciente paciente;
 
