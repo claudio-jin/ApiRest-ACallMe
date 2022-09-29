@@ -8,55 +8,56 @@ import br.com.fiap.Challengesprint3.models.EspecialistaPf;
 import br.com.fiap.Challengesprint3.models.EspecialistaTipo;
 
 public class EspecialistaPfDto {
-    private Long codEspecialista;
-	
-	private String nomeEspecialista;
-	
-	private String email;
-	
-    @JsonFormat(pattern="dd/MM/yyyy")
-	private Date dtNascimento;
-	
-	private Integer telefoneDDD;
-	
-	private Integer telefone;
-	
-	private String descricaoSobre;
-	
-	private EspecialistaTipo tipoEspecialidade;
+	private Long codEspecialista;
 
-    //especialistaPf
-    private Integer cpf;
-	
+	private String nomeEspecialista;
+
+	private String email;
+
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private Date dtNascimento;
+
+	private Integer telefoneDDD;
+
+	private Integer telefone;
+
+	private String descricaoSobre;
+
+	private String tipoEspecialidade;
+
+	private EspecialistaTipo tipo;
+
+	// especialistaPf
+	private Integer cpf;
+
 	private Integer digitoCpf;
 
-	//private Double valorConsulta; //verificar qual valor buscar para ser mapeado
-    
-    //genero
-    private String genero;
+	// private Double valorConsulta; //verificar qual valor buscar para ser mapeado
 
-    //endereco
-    private Integer cep;
-	
+	// genero
+	private String genero;
+
+	// endereco
+	private Integer cep;
+
 	private String nomeRua;
 
 	private Integer numeroRua;
 
 	private String complemento;
 
-	//bairro
-    private String nomeBairro;
-    
-	//cidade
-    private String nomeCidade;
+	// bairro
+	private String nomeBairro;
+
+	// cidade
+	private String nomeCidade;
 
 	private String sigla;
 
-	//estado
-    private String nomeEstado;
+	// estado
+	private String nomeEstado;
 
 	private String siglaEstado;
-
 
 	public EspecialistaPfDto(EspecialistaPf pf) {
 		this.codEspecialista = pf.getCodEspecialista();
@@ -67,11 +68,12 @@ public class EspecialistaPfDto {
 		this.telefone = pf.getTelefone();
 		this.descricaoSobre = pf.getDescricaoSobre();
 		this.descricaoSobre = pf.getDescricaoSobre();
-		this.tipoEspecialidade = pf.getTipo();
+		this.tipoEspecialidade = pf.getTipoEspecialidade();
+		this.tipo = pf.getTipo();
 		this.cpf = pf.getCpf();
 		this.digitoCpf = pf.getDigitoCpf();
 		this.genero = pf.getGenero().getNomeGenero();
-		//endereco
+		// endereco
 		this.cep = pf.getEndereco().getCep();
 		this.nomeRua = pf.getEndereco().getNomeRua();
 		this.numeroRua = pf.getEndereco().getNumeroRua();
@@ -84,10 +86,10 @@ public class EspecialistaPfDto {
 
 	}
 
-
 	public EspecialistaPfDto(Long codEspecialista, String nomeEspecialista, String email, Date dtNascimento,
-			Integer telefoneDDD, Integer telefone, String descricaoSobre, EspecialistaTipo tipoEspecialidade, Integer cpf,
-			Integer digitoCpf, String tipo, String genero, Integer cep, String nomeRua, Integer numeroRua,
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, String tipoEspecialidade,
+			EspecialistaTipo tipo, Integer cpf,
+			Integer digitoCpf, String genero, Integer cep, String nomeRua, Integer numeroRua,
 			String complemento, String nomeBairro, String nomeCidade, String sigla, String nomeEstado,
 			String siglaEstado) {
 		this.codEspecialista = codEspecialista;
@@ -98,6 +100,7 @@ public class EspecialistaPfDto {
 		this.telefone = telefone;
 		this.descricaoSobre = descricaoSobre;
 		this.tipoEspecialidade = tipoEspecialidade;
+		this.tipo = tipo;
 		this.cpf = cpf;
 		this.digitoCpf = digitoCpf;
 		this.genero = genero;
@@ -168,12 +171,20 @@ public class EspecialistaPfDto {
 		this.descricaoSobre = descricaoSobre;
 	}
 
-	public EspecialistaTipo getTipoEspecialidade() {
+	public String getTipoEspecialidade() {
 		return tipoEspecialidade;
 	}
 
-	public void setTipoEspecialidade(EspecialistaTipo tipoEspecialidade) {
+	public void setTipoEspecialidade(String tipoEspecialidade) {
 		this.tipoEspecialidade = tipoEspecialidade;
+	}
+
+	public EspecialistaTipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(EspecialistaTipo tipo) {
+		this.tipo = tipo;
 	}
 
 	public Integer getCpf() {
@@ -272,7 +283,6 @@ public class EspecialistaPfDto {
 		this.siglaEstado = siglaEstado;
 	}
 
-
 	@Override
 	public String toString() {
 		return "EspecialistaPfDto [cep=" + cep + ", codEspecialista=" + codEspecialista + ", complemento=" + complemento
@@ -284,6 +294,4 @@ public class EspecialistaPfDto {
 				+ tipoEspecialidade + "]";
 	}
 
-	
-	
 }
