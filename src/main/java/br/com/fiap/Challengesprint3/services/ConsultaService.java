@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDto;
+import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDtoEspecialistaPf;
 import br.com.fiap.Challengesprint3.models.Consulta;
 import br.com.fiap.Challengesprint3.repository.ConsultaRepository;
 
@@ -38,6 +39,13 @@ public class ConsultaService {
     public List<ConsultaDto> getConsultaDto() {
         List<Consulta> consulta = repository.findAll();
         List<ConsultaDto> dto = consulta.stream().map(d -> new ConsultaDto(d)).collect(Collectors.toList());
+
+        return dto;
+    }
+
+    public List<ConsultaDtoEspecialistaPf> getConsultaDtoEspecialistaPf() {
+        List<Consulta> consulta = repository.findAll();
+        List<ConsultaDtoEspecialistaPf> dto = consulta.stream().map(d -> new ConsultaDtoEspecialistaPf(d)).collect(Collectors.toList());
 
         return dto;
     }
