@@ -5,21 +5,21 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 @Entity
-public class EspecialistaPf extends Especialista{
+public class EspecialistaPf extends Especialista {
 
 	private Integer cpf;
-	
+
 	private Integer digitoCpf;
-	
+
 	public EspecialistaPf() {
-		
+
 	}
 
 	public EspecialistaPf(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			Integer telefoneDDD, Integer telefone, String descricaoSobre, Double valorConsulta, String tipoEspecialidade,
-			EspecialistaTipo tipo, Genero genero, Integer cpf, Integer digitoCpf) {
+			Integer telefoneDDD, Integer telefone, String descricaoSobre, String tipoEspecialidade,
+			EspecialistaTipo tipo, Genero genero, Endereco endereco, Integer cpf, Integer digitoCpf) {
 		super(codEspecialista, nomeEspecialista, email, senha, dtNascimento, telefoneDDD, telefone, descricaoSobre,
-				valorConsulta, tipoEspecialidade, tipo, genero);
+				tipoEspecialidade, tipo, genero, endereco);
 		this.cpf = cpf;
 		this.digitoCpf = digitoCpf;
 	}

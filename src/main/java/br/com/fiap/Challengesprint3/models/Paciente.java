@@ -1,6 +1,7 @@
 package br.com.fiap.Challengesprint3.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -27,13 +29,13 @@ public class Paciente {
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dtNascimento;
 	
-	private int cpf;
+	private Integer cpf;
 	
-	private int digitoCpf;
+	private Integer digitoCpf;
 	
-	private int telefoneDDD;
+	private Integer telefoneDDD;
 	
-	private int telefone;
+	private Integer telefone;
 	
 	private String estadoCivil;
 	
@@ -44,14 +46,18 @@ public class Paciente {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
+
+	//Relação consulta para puxar consultas
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Consulta> consulta;
 	
 	public Paciente () {
 		
 	}
 
-	public Paciente(Long id, String nomePaciente, String email, Date dtNascimento, int cpf, int digitoCpf,
-			int telefoneDDD, int telefone, String estadoCivil, String profissao, Genero genero, Endereco endereco) {
-		super();
+	public Paciente(Long id, String nomePaciente, String email, Date dtNascimento, Integer cpf, Integer digitoCpf,
+			Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao, Genero genero,
+			Endereco endereco, List<Consulta> consulta) {
 		this.id = id;
 		this.nomePaciente = nomePaciente;
 		this.email = email;
@@ -64,6 +70,7 @@ public class Paciente {
 		this.profissao = profissao;
 		this.genero = genero;
 		this.endereco = endereco;
+		this.consulta = consulta;
 	}
 
 	public Long getId() {
@@ -98,35 +105,35 @@ public class Paciente {
 		this.dtNascimento = dtNascimento;
 	}
 
-	public int getCpf() {
+	public Integer getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(Integer cpf) {
 		this.cpf = cpf;
 	}
 
-	public int getDigitoCpf() {
+	public Integer getDigitoCpf() {
 		return digitoCpf;
 	}
 
-	public void setDigitoCpf(int digitoCpf) {
+	public void setDigitoCpf(Integer digitoCpf) {
 		this.digitoCpf = digitoCpf;
 	}
 
-	public int getTelefoneDDD() {
+	public Integer getTelefoneDDD() {
 		return telefoneDDD;
 	}
 
-	public void setTelefoneDDD(int telefoneDDD) {
+	public void setTelefoneDDD(Integer telefoneDDD) {
 		this.telefoneDDD = telefoneDDD;
 	}
 
-	public int getTelefone() {
+	public Integer getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(Integer telefone) {
 		this.telefone = telefone;
 	}
 
@@ -162,23 +169,14 @@ public class Paciente {
 		this.endereco = endereco;
 	}
 
-	@Override
-	public String toString() {
-		return "Paciente [id=" + id + ", nomePaciente=" + nomePaciente + ", email=" + email + ", dtNascimento="
-				+ dtNascimento + ", cpf=" + cpf + ", digitoCpf=" + digitoCpf + ", telefoneDDD=" + telefoneDDD
-				+ ", telefone=" + telefone + ", estadoCivil=" + estadoCivil + ", profissao=" + profissao + ", genero="
-				+ genero + "]";
+	public List<Consulta> getConsulta() {
+		return consulta;
+	}
+
+	public void setConsulta(List<Consulta> consulta) {
+		this.consulta = consulta;
 	}
 
 
-//	@Override
-//	public String toString() {
-//		return "Paciente [id=" + id + ", nomePaciente=" + nomePaciente + ", email=" + email + ", dtNascimento="
-//				+ dtNascimento + ", cpf=" + cpf + ", digitoCpf=" + digitoCpf + ", telefoneDDD=" + telefoneDDD
-//				+ ", telefone=" + telefone + ", estadoCivil=" + estadoCivil + ", profissao=" + profissao + ", genero="
-//				+ genero + ", endereco=" + endereco + "]";
-//	}
-
 	
-    
 }

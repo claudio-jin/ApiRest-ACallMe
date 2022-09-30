@@ -1,5 +1,7 @@
 package br.com.fiap.Challengesprint3.models;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,33 +13,36 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_CLG_CIDADE")
-public class Cidade {
+public class Cidade implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codCidade;
+	private Integer codCidade;
 
 	private String nomeCidade;
 
-	private String sigla;
+	private String siglaCidade;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	private Estado estado;
 
     public Cidade() {}
 
-	public Cidade(int codCidade, String nomeCidade, String sigla) {
+	public Cidade(Integer codCidade, String nomeCidade, String siglaCidade) {
 		super();
 		this.codCidade = codCidade;
 		this.nomeCidade = nomeCidade;
-		this.sigla = sigla;
+		this.siglaCidade = siglaCidade;
 	}
 
-	public int getCodCidade() {
+	public Integer getCodCidade() {
 		return codCidade;
 	}
 
-	public void setCodCidade(int codCidade) {
+	public void setCodCidade(Integer codCidade) {
 		this.codCidade = codCidade;
 	}
 
@@ -49,12 +54,12 @@ public class Cidade {
 		this.nomeCidade = nomeCidade;
 	}
 
-	public String getSigla() {
-		return sigla;
+	public String getSiglaCidade() {
+		return siglaCidade;
 	}
 
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setSiglaCidade(String siglaCidade) {
+		this.siglaCidade = siglaCidade;
 	}
 
 	public Estado getEstado() {
@@ -67,9 +72,11 @@ public class Cidade {
 
 	@Override
 	public String toString() {
-		return "Cidade [codCidade=" + codCidade + ", estado=" + estado + ", nomeCidade=" + nomeCidade + ", sigla="
-				+ sigla + "]";
+		return "Cidade [codCidade=" + codCidade + ", estado=" + estado + ", nomeCidade=" + nomeCidade + ", siglaCidade="
+				+ siglaCidade + "]";
 	}
+
+
 
 	
 	

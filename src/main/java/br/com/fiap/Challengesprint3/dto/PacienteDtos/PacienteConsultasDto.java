@@ -1,12 +1,15 @@
 package br.com.fiap.Challengesprint3.dto.PacienteDtos;
 
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
 
-public class PacienteDadosDto {
+public class PacienteConsultasDto {
     
     private String nomePaciente;
 	
@@ -30,30 +33,10 @@ public class PacienteDadosDto {
     //genero
     private String genero;
 
-    //Endereco
-    private int cep;
-	
-	private String nomeRua;
-
-	private int numeroRua;
-
-	private String complemento;
-
-    private String nomeBairro;
+    //consulta
+    private List<ConsultaDto> consultaDto;
     
-    private String nomeCidade;
-
-	private String siglaCidade;
-
-    private String nomeEstado;
-
-	private String siglaEstado;
-
-    public PacienteDadosDto() {
-
-    }
-
-    public PacienteDadosDto(Paciente paciente) {
+    public PacienteConsultasDto(Paciente paciente) {
         this.nomePaciente = paciente.getNomePaciente();
         this.email = paciente.getEmail();
         this.dtNascimento = paciente.getDtNascimento();
@@ -63,15 +46,8 @@ public class PacienteDadosDto {
         this.estadoCivil = paciente.getEstadoCivil();
         this.profissao = paciente.getProfissao();
         this.genero = paciente.getGenero().getNomeGenero();
-        this.cep = paciente.getEndereco().getCep();
-		this.nomeRua = paciente.getEndereco().getNomeRua();
-        this.numeroRua = paciente.getEndereco().getNumeroRua();
-		this.complemento = paciente.getEndereco().getComplemento();
-		this.nomeBairro = paciente.getEndereco().getBairro().getNomeBairro();
-		this.nomeCidade = paciente.getEndereco().getBairro().getCidade().getNomeCidade();
-		this.siglaCidade = paciente.getEndereco().getBairro().getCidade().getSiglaCidade();
-		this.nomeEstado = paciente.getEndereco().getBairro().getCidade().getEstado().getNomeEstado();
-		this.siglaEstado = paciente.getEndereco().getBairro().getCidade().getEstado().getSiglaEstado();
+        this.consultaDto = paciente.getConsulta().stream().map(c -> new ConsultaDto(c)).collect(Collectors.toList());
+        
     }
 
     public String getNomePaciente() {
@@ -154,78 +130,11 @@ public class PacienteDadosDto {
         this.genero = genero;
     }
 
-    public int getCep() {
-        return cep;
+    public List<ConsultaDto> getConsultaDto() {
+        return consultaDto;
     }
 
-    public void setCep(int cep) {
-        this.cep = cep;
+    public void setConsultaDto(List<ConsultaDto> consultaDto) {
+        this.consultaDto = consultaDto;
     }
-
-    public String getNomeRua() {
-        return nomeRua;
-    }
-
-    public void setNomeRua(String nomeRua) {
-        this.nomeRua = nomeRua;
-    }
-
-    public int getNumeroRua() {
-        return numeroRua;
-    }
-
-    public void setNumeroRua(int numeroRua) {
-        this.numeroRua = numeroRua;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
-
-    public String getNomeBairro() {
-        return nomeBairro;
-    }
-
-    public void setNomeBairro(String nomeBairro) {
-        this.nomeBairro = nomeBairro;
-    }
-
-    public String getNomeCidade() {
-        return nomeCidade;
-    }
-
-    public void setNomeCidade(String nomeCidade) {
-        this.nomeCidade = nomeCidade;
-    }
-
-    public String getSiglaCidade() {
-        return siglaCidade;
-    }
-
-    public void setSiglaCidade(String siglaCidade) {
-        this.siglaCidade = siglaCidade;
-    }
-
-    public String getNomeEstado() {
-        return nomeEstado;
-    }
-
-    public void setNomeEstado(String nomeEstado) {
-        this.nomeEstado = nomeEstado;
-    }
-
-    public String getSiglaEstado() {
-        return siglaEstado;
-    }
-
-    public void setSiglaEstado(String siglaEstado) {
-        this.siglaEstado = siglaEstado;
-    }
-
-    
-
 }

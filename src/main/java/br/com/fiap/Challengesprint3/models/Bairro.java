@@ -1,7 +1,6 @@
 package br.com.fiap.Challengesprint3.models;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,12 +24,12 @@ public class Bairro implements Serializable{
 	private String nomeBairro;
 	
 	//Relacao muitos para um de bairro para cidade
-	@ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	private Cidade cidade;
 
 	//Relacao de um para muitos de bairro para endereco
-	@OneToMany
-	private List<Endereco> enderecos;
+	// @OneToMany
+	// private List<Endereco> enderecos;
 
 	public Bairro() {}
 
@@ -72,9 +70,7 @@ public class Bairro implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Bairro [cidade=" + cidade + ", codBairro=" + codBairro + ", enderecos=" + enderecos + ", nomeBairro="
-				+ nomeBairro + "]";
+		return "Bairro [cidade=" + cidade + ", codBairro=" + codBairro + ", nomeBairro=" + nomeBairro + "]";
 	}
-	
 	
 }

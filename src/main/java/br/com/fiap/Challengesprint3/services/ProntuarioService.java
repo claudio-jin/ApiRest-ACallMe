@@ -2,10 +2,12 @@ package br.com.fiap.Challengesprint3.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.fiap.Challengesprint3.dto.ProntuarioDtos.ProntuarioDto;
 import br.com.fiap.Challengesprint3.models.Prontuario;
 import br.com.fiap.Challengesprint3.repository.ProntuarioRepository;
 
@@ -29,5 +31,11 @@ public class ProntuarioService {
 
     public void remove(Long id) {
         repository.deleteById(id);
+    }
+
+    public List<ProntuarioDto> getProntuarioDto() {
+        List<Prontuario> prontuario = repository.findAll();
+        List<ProntuarioDto> dto = prontuario.stream().map(p-> new ProntuarioDto(p)).collect(Collectors.toList());   
+        return dto;
     }
 }

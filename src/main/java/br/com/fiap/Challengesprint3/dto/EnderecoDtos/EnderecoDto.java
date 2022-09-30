@@ -5,20 +5,24 @@ import br.com.fiap.Challengesprint3.models.Endereco;
 //listagem de endereço dto
 public class EnderecoDto {
 
-    private int cep;
+	//endereco
+    private Integer cep;
 	
 	private String nomeRua;
 
-	private int numeroRua;
+	private Integer numeroRua;
 
 	private String complemento;
 
+	//bairro
     private String nomeBairro;
     
+	//cidade
     private String nomeCidade;
 
 	private String sigla;
 
+	//estado
     private String nomeEstado;
 
 	private String siglaEstado;
@@ -34,16 +38,29 @@ public class EnderecoDto {
 		this.complemento = endereco.getComplemento();
 		this.nomeBairro = endereco.getBairro().getNomeBairro();
 		this.nomeCidade = endereco.getBairro().getCidade().getNomeCidade();
-		this.sigla = endereco.getBairro().getCidade().getSigla();
+		this.sigla = endereco.getBairro().getCidade().getSiglaCidade();
 		this.nomeEstado = endereco.getBairro().getCidade().getEstado().getNomeEstado();
 		this.siglaEstado = endereco.getBairro().getCidade().getEstado().getSiglaEstado();
 
 	}
 
+	public EnderecoDto(int cep, String nomeRua, int numeroRua, String complemento, String nomeBairro, String nomeCidade,
+			String sigla, String nomeEstado, String siglaEstado) {
+		this.cep = cep;
+		this.nomeRua = nomeRua;
+		this.numeroRua = numeroRua;
+		this.complemento = complemento;
+		this.nomeBairro = nomeBairro;
+		this.nomeCidade = nomeCidade;
+		this.sigla = sigla;
+		this.nomeEstado = nomeEstado;
+		this.siglaEstado = siglaEstado;
+	}
+
 	public int getCep() {
 		return cep;
 	}
-
+	
 	public void setCep(int cep) {
 		this.cep = cep;
 	}
@@ -72,6 +89,7 @@ public class EnderecoDto {
 		this.complemento = complemento;
 	}
 
+	
 	public String getNomeBairro() {
 		return nomeBairro;
 	}
@@ -112,6 +130,5 @@ public class EnderecoDto {
 		this.siglaEstado = siglaEstado;
 	}
 
-	
 
 }

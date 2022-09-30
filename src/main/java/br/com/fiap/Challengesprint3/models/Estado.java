@@ -1,5 +1,6 @@
 package br.com.fiap.Challengesprint3.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,11 +12,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "T_CLG_ESTADO")
-public class Estado {
+public class Estado implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int codEstado;
+	private Integer codEstado;
 
 	private String nomeEstado;
 
@@ -26,16 +29,16 @@ public class Estado {
 
 	public Estado () {}
 	
-	public Estado(int codEstado, String nomeEstado, String siglaEstado) {
+	public Estado(Integer codEstado, String nomeEstado, String siglaEstado) {
 		super();
 		this.codEstado = codEstado;
 		this.nomeEstado = nomeEstado;
 		this.siglaEstado = siglaEstado;
 	}
-	public int getCodEstado() {
+	public Integer getCodEstado() {
 		return codEstado;
 	}
-	public void setEstado(int codEstado) {
+	public void setEstado(Integer codEstado) {
 		this.codEstado = codEstado;
 	}
 	public String getNomeEstado() {
