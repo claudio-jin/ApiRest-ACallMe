@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDto;
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDtoEspecialistaPf;
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDtoEspecialistaPj;
+import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaProntuarioDto;
 import br.com.fiap.Challengesprint3.models.Consulta;
 import br.com.fiap.Challengesprint3.services.ConsultaService;
 
@@ -89,5 +90,10 @@ public class ConsultaController {
     @GetMapping("/consultaDtoEspecialistaPj")
     public List<ConsultaDtoEspecialistaPj> getConsultaDtoEspecialistaPj() {
         return consultaService.getConsultaDtoEspecialistaPj();
+    }
+
+    @GetMapping("/consultaProntuarioDto")
+    public List<ConsultaProntuarioDto> getConsultaProntuarioDto() {
+        return consultaService.getConsultaProntuarioDto();
     }
 }

@@ -49,7 +49,17 @@ public class Consulta {
         this.espePf = espePf;
         this.espePj = espePj;
     }
-    
+
+    public Consulta(Long codConsulta, Double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
+            EspecialistaPj espePj, Prontuario prontuario) {
+        this.codConsulta = codConsulta;
+        this.valorConfirmado = valorConfirmado;
+        this.dtConsulta = dtConsulta;
+        this.espePf = espePf;
+        this.espePj = espePj;
+        this.prontuario = prontuario;
+    }
+
     public Long getCodConsulta() {
         return codConsulta;
     }
@@ -91,5 +101,14 @@ public class Consulta {
         this.espePj = espePj;
     }
 
+    public Prontuario getProntuario() {
+        return prontuario;
+    }
+
+    public void setProntuario(Prontuario prontuario) {
+        this.prontuario = prontuario;
+    }
+
+    
 
 }
