@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -30,7 +31,7 @@ public class Consulta {
     private EspecialistaPj espePj;
 
     //implementar relacao prontuario
-    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Prontuario prontuario;
 
     // @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
@@ -39,17 +40,6 @@ public class Consulta {
     public Consulta() {
         
     }
-    
-    // public Consulta(Long codConsulta, Double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
-    //         EspecialistaPj espePj, Paciente paciente) {
-    //     this.codConsulta = codConsulta;
-    //     this.valorConfirmado = valorConfirmado;
-    //     this.dtConsulta = dtConsulta;
-    //     this.espePf = espePf;
-    //     this.espePj = espePj;
-    //     this.paciente = paciente;
-    // }
-
     
     public Consulta(Long codConsulta, Double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
             EspecialistaPj espePj) {
@@ -101,18 +91,5 @@ public class Consulta {
         this.espePj = espePj;
     }
 
-    // public Paciente getPaciente() {
-    //     return paciente;
-    // }
-
-    // public void setPaciente(Paciente paciente) {
-    //     this.paciente = paciente;
-    // }
-
-    // @Override
-    // public String toString() {
-    //     return "Consulta [codConsulta=" + codConsulta + ", dtConsulta=" + dtConsulta + ", espePf=" + espePf
-    //             + ", espePj=" + espePj + ", paciente=" + paciente + ", valorConfirmado=" + valorConfirmado + "]";
-    // }
 
 }
