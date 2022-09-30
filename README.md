@@ -76,10 +76,10 @@ Paciente
             "nomeBairro" : "Santana",
             "cidade" : {
                 "nomeCidade" : "sao paulo",
-                "sigla" : "sp",
+                "siglaCidade" : "sp",
                 "estado" : {
                     "nomeEstado" : "Sao pualo estado",
-                    "sigla" : "SP"
+                    "siglaEstado" : "SP"
                 }
             }
         }
@@ -115,7 +115,7 @@ Especialista pf com endereço
             "nomeBairro" : "Santana",
             "cidade" : {
                 "nomeCidade" : "sao paulo",
-                "sigla" : "sp",
+                "siglaCidade" : "sp",
                 "estado" : {
                     "nomeEstado" : "Sao pualo estado",
                     "siglaEstado" : "SP"
@@ -160,7 +160,7 @@ Especialista pj com endereço
             "nomeBairro" : "Santana",
             "cidade" : {
                 "nomeCidade" : "sao paulo",
-                "sigla" : "sp",
+                "siglaCidade" : "sp",
                 "estado" : {
                     "nomeEstado" : "Sao pualo estado",
                     "siglaEstado" : "SP"
@@ -199,12 +199,7 @@ prontuario json sem especialista e pacientes
     "hda" : "nenhuma",
     "historicoMedico" : "queda de bike",
     "antecedenteFamiliar" : "varias quedas",
-    "habitos" : "tomar café",
-    "codConsulta" : {
-        "valorConfirmado" : 150.00,
-        "dtConsulta" : "22/06/2000"
-
-    }
+    "habitos" : "tomar café"
 }
 
 ```
