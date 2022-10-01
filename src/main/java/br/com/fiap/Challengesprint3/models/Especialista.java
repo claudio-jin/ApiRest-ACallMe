@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @MappedSuperclass // faz com que nao crie uma tabela no banco, ja q especialista so sera usado
 					// para herança
-public abstract class Especialista {
+public class Especialista {
 
 	// verificar implementação do uuid
 	@Id
