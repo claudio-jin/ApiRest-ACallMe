@@ -22,7 +22,7 @@ import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDtoEspecialistaPf;
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDtoEspecialistaPj;
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaProntuarioDto;
 import br.com.fiap.Challengesprint3.models.Consulta;
-import br.com.fiap.Challengesprint3.services.ConsultaService;
+import br.com.fiap.Challengesprint3.service.ConsultaService;
 
 @RestController
 @RequestMapping("/api/consulta")

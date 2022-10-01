@@ -1,4 +1,4 @@
-package br.com.fiap.Challengesprint3.services;
+package br.com.fiap.Challengesprint3.service;
 
 import java.util.List;
 import java.util.Optional;

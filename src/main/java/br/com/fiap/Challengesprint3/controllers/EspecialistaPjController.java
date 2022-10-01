@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.Challengesprint3.models.EspecialistaPj;
-import br.com.fiap.Challengesprint3.services.EspecialistaPjService;
+import br.com.fiap.Challengesprint3.service.EspecialistaPjService;
 
 @RestController
 @RequestMapping("/api/especialistaPj")

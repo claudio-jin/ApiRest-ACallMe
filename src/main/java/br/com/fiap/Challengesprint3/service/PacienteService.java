@@ -1,10 +1,11 @@
-package br.com.fiap.Challengesprint3.services;
+package br.com.fiap.Challengesprint3.service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,9 @@ public class PacienteService {
 
 	@Autowired
 	PacienteRepository repository;
+
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	public List<Paciente> listAll() {
 		return repository.findAll();
@@ -26,6 +30,7 @@ public class PacienteService {
 	
 	@Transactional
 	public void save(Paciente paciente) {
+		paciente.setPassword(passwordEncoder.encode(paciente.getPassword()));
 		repository.save(paciente);
 	}
 	

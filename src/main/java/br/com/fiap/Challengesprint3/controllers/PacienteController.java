@@ -22,7 +22,7 @@ import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasProntuarioDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteDadosDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
-import br.com.fiap.Challengesprint3.services.PacienteService;
+import br.com.fiap.Challengesprint3.service.PacienteService;
 
 @RestController
 @RequestMapping("/api/paciente")

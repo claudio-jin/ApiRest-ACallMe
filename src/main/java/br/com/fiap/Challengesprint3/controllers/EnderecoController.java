@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.Challengesprint3.dto.EnderecoDtos.EnderecoDto;
 import br.com.fiap.Challengesprint3.models.Endereco;
-import br.com.fiap.Challengesprint3.services.EnderecoService;
+import br.com.fiap.Challengesprint3.service.EnderecoService;
 
 //classe teste de endereco
 @RestController

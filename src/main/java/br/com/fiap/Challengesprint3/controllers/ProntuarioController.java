@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.Challengesprint3.dto.ProntuarioDtos.ProntuarioDto;
 import br.com.fiap.Challengesprint3.models.Prontuario;
-import br.com.fiap.Challengesprint3.services.ProntuarioService;
+import br.com.fiap.Challengesprint3.service.ProntuarioService;
 
 @RestController
 @RequestMapping("/api/prontuario")

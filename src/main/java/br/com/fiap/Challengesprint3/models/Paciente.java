@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class Paciente {
+public class Paciente{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +25,10 @@ public class Paciente {
 	
 	private String nomePaciente;
 	
+	@Column(unique = true)
 	private String email;
+
+	private String password;
 	
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dtNascimento;
@@ -55,12 +59,13 @@ public class Paciente {
 		
 	}
 
-	public Paciente(Long id, String nomePaciente, String email, Date dtNascimento, Integer cpf, Integer digitoCpf,
-			Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao, Genero genero,
-			Endereco endereco, List<Consulta> consulta) {
+	public Paciente(Long id, String nomePaciente, String email, String password, Date dtNascimento, Integer cpf,
+			Integer digitoCpf, Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao,
+			Genero genero, Endereco endereco, List<Consulta> consulta) {
 		this.id = id;
 		this.nomePaciente = nomePaciente;
 		this.email = email;
+		this.password = password;
 		this.dtNascimento = dtNascimento;
 		this.cpf = cpf;
 		this.digitoCpf = digitoCpf;
@@ -177,6 +182,11 @@ public class Paciente {
 		this.consulta = consulta;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-	
+	public String getPassword() {
+		return password;
+	}
 }

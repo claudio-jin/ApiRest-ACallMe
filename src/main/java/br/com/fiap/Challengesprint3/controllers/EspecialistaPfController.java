@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.Challengesprint3.dto.EspecialistaPfDtos.EspecialistaPfDto;
 import br.com.fiap.Challengesprint3.models.EspecialistaPf;
-import br.com.fiap.Challengesprint3.services.EspecialistaPfService;
+import br.com.fiap.Challengesprint3.service.EspecialistaPfService;
 
 @RestController
 @RequestMapping("/api/especialistaPf")
