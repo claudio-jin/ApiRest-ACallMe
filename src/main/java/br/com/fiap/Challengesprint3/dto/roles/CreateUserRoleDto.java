@@ -3,16 +3,16 @@ package br.com.fiap.Challengesprint3.dto.roles;
 import java.util.List;
 
 public class CreateUserRoleDto {
-    private Long id;
+    private Long idUser;
     
     private List<Long> idsRoles;
 
-    public Long getId() {
-        return id;
+    public Long getIdUser() {
+        return idUser;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
     }
 
     public List<Long> getIdsRoles() {

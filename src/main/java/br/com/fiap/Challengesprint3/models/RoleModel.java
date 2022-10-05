@@ -1,30 +1,25 @@
 package br.com.fiap.Challengesprint3.models;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import br.com.fiap.Challengesprint3.enums.RoleName;
-
 @Entity
-public class RoleModel implements GrantedAuthority, Serializable{
+public class RoleModel implements GrantedAuthority{
     
-    private static final long serialVersionUID = 1L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roleId;
 
-    @Enumerated(EnumType.STRING)
     // @Column(nullable = false, unique = true)
-    private RoleName roleName;
+    private String roleName;
+
+    // @Enumerated(EnumType.STRING)
+    // // @Column(nullable = false, unique = true)
+    // private RoleName roleName;
 
     public RoleModel() {
 
@@ -34,22 +29,18 @@ public class RoleModel implements GrantedAuthority, Serializable{
         this.roleId = roleId;
     }
 
-    public RoleModel(Long roleId, RoleName roleName) {
+    public RoleModel(Long roleId, String roleName) {
         this.roleId = roleId;
         this.roleName = roleName;
     }
 
-    public RoleModel(RoleName roleName) {
+    public RoleModel(String roleName) {
         this.roleName = roleName;
     }
 
     @Override
     public String getAuthority() {
-        return this.roleName.toString();
-    }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
+        return this.roleName;
     }
 
     public Long getRoleId() {
@@ -60,13 +51,11 @@ public class RoleModel implements GrantedAuthority, Serializable{
         this.roleId = roleId;
     }
 
-    public RoleName getRoleName() {
+    public String getRoleName() {
         return roleName;
     }
 
-    public void setRoleName(RoleName roleName) {
+    public void setRoleName(String roleName) {
         this.roleName = roleName;
-    }
-
-    
+    }    
 }

@@ -72,7 +72,7 @@ public class SecurityConfiguration {
                 .antMatchers(HttpMethod.PUT, "/api/paciente/**").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/paciente/**").authenticated()
                 .antMatchers(HttpMethod.POST, "/api/paciente/role/**").permitAll()
-                .anyRequest().denyAll()
+                .anyRequest().permitAll()
             .and()
                 // .addFilter(new JWTAuthenticFilter(authenticationManager))
                 // .addFilter(new JWTValidFilter(authenticationManager))

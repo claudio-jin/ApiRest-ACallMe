@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,15 +14,20 @@ import br.com.fiap.Challengesprint3.dto.roles.CreateUserRoleDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
 import br.com.fiap.Challengesprint3.models.RoleModel;
 import br.com.fiap.Challengesprint3.repository.PacienteRepository;
+import br.com.fiap.Challengesprint3.repository.RoleRepository;
 
+@Transactional
 @Service
 public class CreateRoleUserService {
     
     @Autowired
     PacienteRepository repository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     public Paciente execute(CreateUserRoleDto dto) {
-        Optional<Paciente> pacientExists = repository.findById(dto.getId());
+        Optional<Paciente> pacientExists = repository.findById(dto.getIdUser());
         List<RoleModel> roles = new ArrayList<>(); 
         
         if(pacientExists.isEmpty()) {
@@ -39,4 +46,10 @@ public class CreateRoleUserService {
 
         return paciente;
     }
+
+    public void createRole(RoleModel role) {
+        roleRepository.save(role);
+    }
+
+
 }
