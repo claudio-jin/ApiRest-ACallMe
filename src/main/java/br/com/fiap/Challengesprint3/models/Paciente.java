@@ -12,6 +12,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -22,8 +25,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class Paciente implements UserDetails {
+public class Paciente implements UserDetails, Serializable {
 	
+
+    private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,6 +65,9 @@ public class Paciente implements UserDetails {
 	//Relação consulta para puxar consultas
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Consulta> consulta;
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<RoleModel> roles;
 	
 	public Paciente () {
 		
@@ -188,47 +196,53 @@ public class Paciente implements UserDetails {
 		this.consulta = consulta;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
-	public String getPassword() {
-		return this.password;
-	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
 		return this.email;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
+
+	@Override
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public List<RoleModel> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<RoleModel> roles) {
+		this.roles = roles;
+	}
+	
 }

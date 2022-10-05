@@ -52,4 +52,16 @@ public class PacienteService {
 		List<Paciente> pacientes = repository.findAll();
 		return pacientes.stream().map(p -> new PacienteConsultasProntuarioDto(p)).collect(Collectors.toList());
 	}
+
+	//Variação para criçao de um paciente
+	// public Paciente execute(Paciente paciente) {
+	// 	Paciente existPaciente = repository.findByUsername(paciente.getUsername());
+
+	// 	if(existPaciente != null) {
+	// 		throw new Error("User already exist");
+	// 	}
+	// 	Paciente createPaciente = repository.save(paciente);
+
+	// 	return createPaciente;
+	// }
 }

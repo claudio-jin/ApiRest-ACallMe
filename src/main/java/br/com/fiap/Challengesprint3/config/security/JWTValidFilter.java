@@ -15,7 +15,7 @@
 
 // import com.auth0.jwt.JWT;
 // import com.auth0.jwt.algorithms.Algorithm;
-
+//video experts java
 // public class JWTValidFilter extends BasicAuthenticationFilter{
 
 //     public static final String HEADER_ATRIBUTO = "Authorization";
