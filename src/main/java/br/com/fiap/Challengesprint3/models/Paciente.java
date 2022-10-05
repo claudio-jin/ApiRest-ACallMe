@@ -1,9 +1,9 @@
 package br.com.fiap.Challengesprint3.models;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,11 +23,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class Paciente implements UserDetails, Serializable {
+public class Paciente implements UserDetails{
 	
-
-    private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -64,16 +61,17 @@ public class Paciente implements UserDetails, Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Consulta> consulta;
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<RoleModel> roles;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<RoleModel> roles;
 	
 	public Paciente () {
 		
 	}
 
+
 	public Paciente(Long id, String nomePaciente, String email, String password, Date dtNascimento, Integer cpf,
 			Integer digitoCpf, Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao,
-			Genero genero, Endereco endereco, List<Consulta> consulta) {
+			Genero genero, Endereco endereco, List<Consulta> consulta, Set<RoleModel> roles) {
 		this.id = id;
 		this.nomePaciente = nomePaciente;
 		this.email = email;
@@ -88,7 +86,10 @@ public class Paciente implements UserDetails, Serializable {
 		this.genero = genero;
 		this.endereco = endereco;
 		this.consulta = consulta;
+		this.roles = roles;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -194,11 +195,9 @@ public class Paciente implements UserDetails, Serializable {
 		this.consulta = consulta;
 	}
 
-
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return this.roles;
 	}
 
 	@Override
@@ -235,11 +234,11 @@ public class Paciente implements UserDetails, Serializable {
 		this.password = password;
 	}
 
-	public List<RoleModel> getRoles() {
+	public Set<RoleModel> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<RoleModel> roles) {
+	public void setRoles(Set<RoleModel> roles) {
 		this.roles = roles;
 	}
 	

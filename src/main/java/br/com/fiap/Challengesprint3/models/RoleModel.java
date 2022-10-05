@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-public class RoleModel implements GrantedAuthority{
-    
+public class RoleModel implements GrantedAuthority {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roleId;
@@ -29,12 +29,12 @@ public class RoleModel implements GrantedAuthority{
         this.roleId = roleId;
     }
 
-    public RoleModel(Long roleId, String roleName) {
-        this.roleId = roleId;
+    public RoleModel(String roleName) {
         this.roleName = roleName;
     }
 
-    public RoleModel(String roleName) {
+    public RoleModel(Long roleId, String roleName) {
+        this.roleId = roleId;
         this.roleName = roleName;
     }
 
@@ -57,5 +57,5 @@ public class RoleModel implements GrantedAuthority{
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
-    }    
+    }
 }

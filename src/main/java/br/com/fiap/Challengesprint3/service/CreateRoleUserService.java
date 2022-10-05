@@ -3,6 +3,7 @@ package br.com.fiap.Challengesprint3.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -28,15 +29,15 @@ public class CreateRoleUserService {
 
     public Paciente execute(CreateUserRoleDto dto) {
         Optional<Paciente> pacientExists = repository.findById(dto.getIdUser());
-        List<RoleModel> roles = new ArrayList<>(); 
+        Set<RoleModel> roles ; 
         
         if(pacientExists.isEmpty()) {
             throw new Error("User not exists");
         }
 
         roles = dto.getIdsRoles().stream().map(role -> {
-            return new RoleModel();
-        }).collect(Collectors.toList());
+            return new RoleModel(role);
+        }).collect(Collectors.toSet());
 
         Paciente paciente = pacientExists.get();
 
@@ -51,5 +52,8 @@ public class CreateRoleUserService {
         roleRepository.save(role);
     }
 
+    public List<RoleModel> getRoles() {
+        return roleRepository.findAll();
+    }
 
 }

@@ -3,6 +3,7 @@ package br.com.fiap.Challengesprint3.controllers;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
@@ -26,6 +27,7 @@ import br.com.fiap.Challengesprint3.models.Paciente;
 import br.com.fiap.Challengesprint3.service.CreateRoleUserService;
 import br.com.fiap.Challengesprint3.service.PacienteService;
 
+@Transactional
 @RestController
 @RequestMapping("/api/paciente")
 public class PacienteController {
