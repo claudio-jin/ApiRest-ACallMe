@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
+import br.com.fiap.Challengesprint3.enums.EspecialistaTipo;
+
 @Entity
 public class EspecialistaPj extends Especialista {
 

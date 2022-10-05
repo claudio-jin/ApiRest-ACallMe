@@ -15,6 +15,8 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.fiap.Challengesprint3.enums.EspecialistaTipo;
+
 @MappedSuperclass // faz com que nao crie uma tabela no banco, ja q especialista so sera usado
 					// para herança
 public class Especialista {

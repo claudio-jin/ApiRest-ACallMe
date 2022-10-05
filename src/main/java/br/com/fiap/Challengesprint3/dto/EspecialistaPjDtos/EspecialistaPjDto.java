@@ -4,8 +4,8 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.fiap.Challengesprint3.enums.EspecialistaTipo;
 import br.com.fiap.Challengesprint3.models.EspecialistaPj;
-import br.com.fiap.Challengesprint3.models.EspecialistaTipo;
 
 public class EspecialistaPjDto {
     private Long codEspecialista;
