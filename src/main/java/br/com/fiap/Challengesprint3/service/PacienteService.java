@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasProntuarioDto;
+import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteDtoComId;
 import br.com.fiap.Challengesprint3.models.Paciente;
 import br.com.fiap.Challengesprint3.repository.PacienteRepository;
 
@@ -51,6 +52,16 @@ public class PacienteService {
 	public List<PacienteConsultasProntuarioDto> getPacienteConsultaProntuarioDto() {
 		List<Paciente> pacientes = repository.findAll();
 		return pacientes.stream().map(p -> new PacienteConsultasProntuarioDto(p)).collect(Collectors.toList());
+	}
+
+	public List<Paciente> login(String email, String password) {
+		return repository.findByEmailAndPassword(email, password);
+	}
+
+	public List<PacienteDtoComId> getPacienteComId() {
+		List<Paciente> pacientes = repository.findAll();
+		List<PacienteDtoComId> dto = pacientes.stream().map(p -> new PacienteDtoComId(p)).collect(Collectors.toList()); 
+		return dto;
 	}
 
 	//Variação para criçao de um paciente

@@ -1,3 +1,4 @@
+package br.com.fiap.Challengesprint3.config.securityTest;
 // package br.com.fiap.Challengesprint3.config.security;
 
 // import java.util.ArrayList;

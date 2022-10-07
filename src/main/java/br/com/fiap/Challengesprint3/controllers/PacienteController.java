@@ -27,6 +27,7 @@ import br.com.fiap.Challengesprint3.models.Paciente;
 import br.com.fiap.Challengesprint3.service.CreateRoleUserService;
 import br.com.fiap.Challengesprint3.service.PacienteService;
 
+
 @Transactional
 @RestController
 @RequestMapping("/api/paciente")
@@ -111,5 +112,11 @@ public class PacienteController {
 	public List<PacienteConsultasProntuarioDto> getPacienteConsultasProntuariosDto() {
 		return pacienteService.getPacienteConsultaProntuarioDto();
 	}
+
+	@GetMapping("/login")
+	public List<Paciente> login(@RequestBody String email, @RequestBody String password) {
+		return pacienteService.login(email, password);
+	}
+	
 
 }
