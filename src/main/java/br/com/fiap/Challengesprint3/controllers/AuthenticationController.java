@@ -3,7 +3,6 @@ package br.com.fiap.Challengesprint3.controllers;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -38,7 +37,7 @@ public class AuthenticationController {
             // gerar o token
             // Tempo de expiração do token
             Date issuedAt = new Date();
-            Date expiresAt = new Date(issuedAt.getTime() + 60_000); // 1hr
+            Date expiresAt = new Date(issuedAt.getTime() + 60_000);
             // Montando o token
             String token = JWT.create()
                     .withSubject(usuario.getEmail())

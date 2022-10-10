@@ -8,7 +8,9 @@ public class JwtToken {
 
     public JwtToken() {}
 
-    public JwtToken(String token) {}
+    public JwtToken(String token) {
+        this.token = "Bearer " + token;
+    }
 
     public JwtToken(String token, String type) {
         this.token = token;
