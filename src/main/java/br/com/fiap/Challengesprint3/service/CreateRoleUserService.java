@@ -27,26 +27,26 @@ public class CreateRoleUserService {
     @Autowired
     RoleRepository roleRepository;
 
-    public Paciente execute(CreateUserRoleDto dto) {
-        Optional<Paciente> pacientExists = repository.findById(dto.getIdUser());
-        Set<RoleModel> roles ; 
+    // public Paciente execute(CreateUserRoleDto dto) {
+    //     Optional<Paciente> pacientExists = repository.findById(dto.getIdUser());
+    //     Set<RoleModel> roles ; 
         
-        if(pacientExists.isEmpty()) {
-            throw new Error("User not exists");
-        }
+    //     if(pacientExists.isEmpty()) {
+    //         throw new Error("User not exists");
+    //     }
 
-        roles = dto.getIdsRoles().stream().map(role -> {
-            return new RoleModel(role);
-        }).collect(Collectors.toSet());
+    //     roles = dto.getIdsRoles().stream().map(role -> {
+    //         return new RoleModel(role);
+    //     }).collect(Collectors.toSet());
 
-        Paciente paciente = pacientExists.get();
+    //     Paciente paciente = pacientExists.get();
 
-        paciente.setRoles(roles);
+    //     paciente.setRoles(roles);
 
-        repository.save(paciente);
+    //     repository.save(paciente);
 
-        return paciente;
-    }
+    //     return paciente;
+    // }
 
     public void createRole(RoleModel role) {
         roleRepository.save(role);

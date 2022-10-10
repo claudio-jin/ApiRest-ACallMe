@@ -1,40 +1,21 @@
 package br.com.fiap.Challengesprint3.models;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-public class Paciente implements UserDetails{
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+public class Paciente extends Usuario {
 	
 	private String nomePaciente;
-	
-	@Column(unique = true)
-	private String email;
-
-	private String password;
 	
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dtNascimento;
@@ -57,25 +38,19 @@ public class Paciente implements UserDetails{
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 
-	//Relação consulta para puxar consultas
+	//Relação para puxar consultas
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Consulta> consulta;
-
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Set<RoleModel> roles;
 	
 	public Paciente () {
 		
 	}
 
-
-	public Paciente(Long id, String nomePaciente, String email, String password, Date dtNascimento, Integer cpf,
-			Integer digitoCpf, Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao,
-			Genero genero, Endereco endereco, List<Consulta> consulta, Set<RoleModel> roles) {
-		this.id = id;
+	public Paciente(Long id, String email, String password, Long id2, String nomePaciente, Date dtNascimento,
+			Integer cpf, Integer digitoCpf, Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao,
+			Genero genero, Endereco endereco, List<Consulta> consulta) {
+		super(id, email, password);
 		this.nomePaciente = nomePaciente;
-		this.email = email;
-		this.password = password;
 		this.dtNascimento = dtNascimento;
 		this.cpf = cpf;
 		this.digitoCpf = digitoCpf;
@@ -86,17 +61,6 @@ public class Paciente implements UserDetails{
 		this.genero = genero;
 		this.endereco = endereco;
 		this.consulta = consulta;
-		this.roles = roles;
-	}
-
-
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNomePaciente() {
@@ -105,14 +69,6 @@ public class Paciente implements UserDetails{
 
 	public void setNomePaciente(String nomePaciente) {
 		this.nomePaciente = nomePaciente;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Date getDtNascimento() {
@@ -194,52 +150,4 @@ public class Paciente implements UserDetails{
 	public void setConsulta(List<Consulta> consulta) {
 		this.consulta = consulta;
 	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.roles;
-	}
-
-	@Override
-	public String getUsername() {
-		return this.email;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-
-	@Override
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Set<RoleModel> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<RoleModel> roles) {
-		this.roles = roles;
-	}
-	
 }

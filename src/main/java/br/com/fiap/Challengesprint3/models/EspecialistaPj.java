@@ -19,12 +19,12 @@ public class EspecialistaPj extends Especialista {
 
 	}
 
-	public EspecialistaPj(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
-			Integer telefoneDDD, Integer telefone, String descricaoSobre, String tipoEspecialidade,
+	public EspecialistaPj(Long id, String email, String password, String nomeEspecialista,
+			Date dtNascimento, Integer telefoneDDD, Integer telefone, String descricaoSobre, String tipoEspecialidade,
 			EspecialistaTipo tipo, Genero genero, Endereco endereco, Integer cnpj, Integer cnpjDigito,
 			String razaoSocial) {
-		super(codEspecialista, nomeEspecialista, email, senha, dtNascimento, telefoneDDD, telefone, descricaoSobre,
-				tipoEspecialidade, tipo, genero, endereco);
+		super(id, email, password, nomeEspecialista, dtNascimento, telefoneDDD, telefone,
+				descricaoSobre, tipoEspecialidade, tipo, genero, endereco);
 		this.cnpj = cnpj;
 		this.cnpjDigito = cnpjDigito;
 		this.razaoSocial = razaoSocial;

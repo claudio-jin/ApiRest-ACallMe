@@ -6,9 +6,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
@@ -19,18 +16,9 @@ import br.com.fiap.Challengesprint3.enums.EspecialistaTipo;
 
 @MappedSuperclass // faz com que nao crie uma tabela no banco, ja q especialista so sera usado
 					// para herança
-public class Especialista {
-
-	// verificar implementação do uuid
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codEspecialista;
+public class Especialista extends Usuario{
 
 	private String nomeEspecialista;
-
-	private String email;
-
-	private String senha;
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dtNascimento;
@@ -55,13 +43,11 @@ public class Especialista {
 	public Especialista() {
 	}
 
-	public Especialista(Long codEspecialista, String nomeEspecialista, String email, String senha, Date dtNascimento,
+	public Especialista(Long id, String email, String password, String nomeEspecialista, Date dtNascimento,
 			Integer telefoneDDD, Integer telefone, String descricaoSobre, String tipoEspecialidade,
 			EspecialistaTipo tipo, Genero genero, Endereco endereco) {
-		this.codEspecialista = codEspecialista;
+		super(id, email, password);
 		this.nomeEspecialista = nomeEspecialista;
-		this.email = email;
-		this.senha = senha;
 		this.dtNascimento = dtNascimento;
 		this.telefoneDDD = telefoneDDD;
 		this.telefone = telefone;
@@ -72,36 +58,12 @@ public class Especialista {
 		this.endereco = endereco;
 	}
 
-	public Long getCodEspecialista() {
-		return codEspecialista;
-	}
-
-	public void setCodEspecialista(Long codEspecialista) {
-		this.codEspecialista = codEspecialista;
-	}
-
 	public String getNomeEspecialista() {
 		return nomeEspecialista;
 	}
 
 	public void setNomeEspecialista(String nomeEspecialista) {
 		this.nomeEspecialista = nomeEspecialista;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public Date getDtNascimento() {
@@ -166,14 +128,6 @@ public class Especialista {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	@Override
-	public String toString() {
-		return "Especialista [codEspecialista=" + codEspecialista + ", descricaoSobre=" + descricaoSobre
-				+ ", dtNascimento=" + dtNascimento + ", email=" + email + ", endereco=" + endereco + ", genero="
-				+ genero + ", nomeEspecialista=" + nomeEspecialista + ", senha=" + senha + ", telefone=" + telefone
-				+ ", telefoneDDD=" + telefoneDDD + ", tipo=" + tipo + ", tipoEspecialidade=" + tipoEspecialidade + "]";
 	}
 
 }

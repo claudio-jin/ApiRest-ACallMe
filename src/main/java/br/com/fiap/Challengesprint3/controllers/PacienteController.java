@@ -49,10 +49,10 @@ public class PacienteController {
 	}
 
 	//Criando uma role no usuario
-	@PostMapping("/role")
-	public Paciente role(@RequestBody CreateUserRoleDto dto)  {
-		return createRoleUserService.execute(dto);
-	}
+	// @PostMapping("/role")
+	// public Paciente role(@RequestBody CreateUserRoleDto dto)  {
+	// 	return createRoleUserService.execute(dto);
+	// }
 
 	//Listagem de todos os pacientes
 	@GetMapping

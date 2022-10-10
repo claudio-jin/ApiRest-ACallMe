@@ -29,6 +29,8 @@ public class PacienteService {
 		return repository.findAll();
 	}
 	
+
+	//Arrumar classe filha herdeiro
 	@Transactional
 	public void save(Paciente paciente) {
 		paciente.setPassword(passwordEncoder.encode(paciente.getPassword()));

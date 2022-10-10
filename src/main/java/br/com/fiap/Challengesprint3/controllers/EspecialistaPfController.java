@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.fiap.Challengesprint3.dto.EspecialistaPfDtos.EspecialistaPfDto;
+// import br.com.fiap.Challengesprint3.dto.EspecialistaPfDtos.EspecialistaPfDto;
 import br.com.fiap.Challengesprint3.models.EspecialistaPf;
 import br.com.fiap.Challengesprint3.service.EspecialistaPfService;
 
@@ -44,10 +44,10 @@ public class EspecialistaPfController {
         return service.listAll();
     }
 
-    @GetMapping("/especialistaPfDto")
-    public List<EspecialistaPfDto> getEspecialistaPfDto() {
-        return service.getEspecialistaPfDto();
-    }
+    // @GetMapping("/especialistaPfDto")
+    // public List<EspecialistaPfDto> getEspecialistaPfDto() {
+    //     return service.getEspecialistaPfDto();
+    // }
 
 	
 	@PutMapping("{id}")
@@ -59,7 +59,7 @@ public class EspecialistaPfController {
 		}
         var especialistaPf = optional.get();
         BeanUtils.copyProperties(novoEspecialistaPf, especialistaPf);
-        especialistaPf.setCodEspecialista(id);
+        especialistaPf.setId(id);
 
         service.save(especialistaPf);
         return ResponseEntity.ok(especialistaPf);

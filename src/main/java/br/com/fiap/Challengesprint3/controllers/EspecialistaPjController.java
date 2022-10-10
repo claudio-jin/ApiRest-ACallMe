@@ -52,7 +52,7 @@ public class EspecialistaPjController {
 		}
         var especialistaPj = optional.get();
         BeanUtils.copyProperties(novoEspecialistaPj, especialistaPj);
-        especialistaPj.setCodEspecialista(id);
+        especialistaPj.setId(id);
 
         service.save(especialistaPj);
         return ResponseEntity.ok(especialistaPj);
