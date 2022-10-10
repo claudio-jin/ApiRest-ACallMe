@@ -9,15 +9,17 @@ import org.springframework.security.core.Authentication;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
-import br.com.fiap.Challengesprint3.models.Paciente;
-import br.com.fiap.Challengesprint3.repository.PacienteRepository;
+import br.com.fiap.Challengesprint3.models.Usuario;
+import br.com.fiap.Challengesprint3.repository.UsuarioRepository;
 
 
 public class TokenService {
     
     @Autowired
-    PacienteRepository repository;
+    UsuarioRepository repository;
 
+    //Valida o token e o algoritmo utilizado
+    //Passando como senha a string "secret" para decodificação
     public boolean validate(String token) {
 
         try{
@@ -29,10 +31,11 @@ public class TokenService {
 
     }
 
+    //Autenticação do token pelo subject (Valor contido no subject é o email)
     public Authentication getAuthenticationToken(String token) {
         String email = JWT.require(Algorithm.HMAC512("secret")).build().verify(token).getSubject();
         
-        Optional<Paciente> optional = repository.findByEmail(email);
+        Optional<Usuario> optional = repository.findByEmail(email);
         if (optional.isEmpty()) return null;
         var user = optional.get();
         Authentication authentication = 
