@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasProntuarioDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteDadosDto;
-import br.com.fiap.Challengesprint3.dto.roles.CreateUserRoleDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
 import br.com.fiap.Challengesprint3.service.CreateRoleUserService;
 import br.com.fiap.Challengesprint3.service.PacienteService;

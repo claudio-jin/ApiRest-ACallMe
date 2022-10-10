@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-// import br.com.fiap.Challengesprint3.dto.EspecialistaPfDtos.EspecialistaPfDto;
+import br.com.fiap.Challengesprint3.dto.EspecialistaPfDtos.EspecialistaPfDto;
 import br.com.fiap.Challengesprint3.models.EspecialistaPf;
 import br.com.fiap.Challengesprint3.repository.EspecialistaPfRepository;
 
@@ -41,10 +41,10 @@ public class EspecialistaPfService {
         return repository.findById(id);
     }
 
-    // public List<EspecialistaPfDto> getEspecialistaPfDto() {
-    //     List<EspecialistaPf> especialistas = repository.findAll();
-    //     List<EspecialistaPfDto> dto = especialistas.stream().map( e -> new EspecialistaPfDto(e)).collect(Collectors.toList());
-    //     return dto;
-    // }
+    public List<EspecialistaPfDto> getEspecialistaPfDto() {
+        List<EspecialistaPf> especialistas = repository.findAll();
+        List<EspecialistaPfDto> dto = especialistas.stream().map( e -> new EspecialistaPfDto(e)).collect(Collectors.toList());
+        return dto;
+    }
 	
 }
