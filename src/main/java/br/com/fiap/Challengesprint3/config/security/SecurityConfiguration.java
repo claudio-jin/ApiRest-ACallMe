@@ -47,6 +47,13 @@ public class SecurityConfiguration {
                     .antMatchers(HttpMethod.PUT, "/api/especialistaPj/**").authenticated()
                     .antMatchers(HttpMethod.DELETE, "/api/especialistaPj/**").authenticated()
 
+                    //consulta
+                    .antMatchers(HttpMethod.GET, "/api/consulta/**").permitAll()
+                    .antMatchers(HttpMethod.POST, "/api/consulta").permitAll()
+                    .antMatchers(HttpMethod.POST, "/api/consulta/**").permitAll()
+                    .antMatchers(HttpMethod.PUT, "/api/consulta/**").authenticated()
+                    .antMatchers(HttpMethod.DELETE, "/api/consulta/**").authenticated()
+
                     // roles
                     .antMatchers(HttpMethod.POST, "/api/paciente/role/**").permitAll()
 

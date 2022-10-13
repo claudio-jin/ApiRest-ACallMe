@@ -23,7 +23,7 @@ import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteConsultasProntuarioDto;
 import br.com.fiap.Challengesprint3.dto.PacienteDtos.PacienteDadosDto;
 import br.com.fiap.Challengesprint3.models.Paciente;
-import br.com.fiap.Challengesprint3.service.CreateRoleUserService;
+// import br.com.fiap.Challengesprint3.service.CreateRoleUserService;
 import br.com.fiap.Challengesprint3.service.PacienteService;
 
 
@@ -35,8 +35,8 @@ public class PacienteController {
 	@Autowired
 	PacienteService pacienteService;
 
-	@Autowired
-	CreateRoleUserService createRoleUserService;
+	// @Autowired
+	// CreateRoleUserService createRoleUserService;
 	
 	//Cadastro de paciente
 	@PostMapping
