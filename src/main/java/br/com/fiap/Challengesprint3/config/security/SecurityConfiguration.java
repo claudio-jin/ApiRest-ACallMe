@@ -32,39 +32,39 @@ public class SecurityConfiguration {
                     // paciente
                     .antMatchers(HttpMethod.GET, "/api/paciente/**").permitAll()
                     .antMatchers(HttpMethod.POST, "/api/paciente").permitAll()
-                    .antMatchers(HttpMethod.PUT, "/api/paciente/**").authenticated()
-                    .antMatchers(HttpMethod.DELETE, "/api/paciente/**").authenticated()
+                    .antMatchers(HttpMethod.PUT, "/api/paciente/**").permitAll()        //Auth
+                    .antMatchers(HttpMethod.DELETE, "/api/paciente/**").permitAll()     //Auth
 
                     // EspecialistaPf
                     .antMatchers(HttpMethod.GET, "/api/especialistaPf/**").permitAll()
                     .antMatchers(HttpMethod.POST, "/api/especialistaPf").permitAll()
-                    .antMatchers(HttpMethod.PUT, "/api/especialistaPf/**").authenticated()
-                    .antMatchers(HttpMethod.DELETE, "/api/especialistaPf/**").authenticated()
+                    .antMatchers(HttpMethod.PUT, "/api/especialistaPf/**").permitAll()      //Auth
+                    .antMatchers(HttpMethod.DELETE, "/api/especialistaPf/**").permitAll()       //Auth
 
                     // EspecialistaPj
                     .antMatchers(HttpMethod.GET, "/api/especialistaPj/**").permitAll()
                     .antMatchers(HttpMethod.POST, "/api/especialistaPj").permitAll()
-                    .antMatchers(HttpMethod.PUT, "/api/especialistaPj/**").authenticated()
-                    .antMatchers(HttpMethod.DELETE, "/api/especialistaPj/**").authenticated()
+                    .antMatchers(HttpMethod.PUT, "/api/especialistaPj/**").permitAll()      //Auth
+                    .antMatchers(HttpMethod.DELETE, "/api/especialistaPj/**").permitAll()       //Auth
 
                     //consulta
                     .antMatchers(HttpMethod.GET, "/api/consulta/**").permitAll()
                     .antMatchers(HttpMethod.POST, "/api/consulta").permitAll()
                     .antMatchers(HttpMethod.POST, "/api/consulta/**").permitAll()
-                    .antMatchers(HttpMethod.PUT, "/api/consulta/**").authenticated()
-                    .antMatchers(HttpMethod.DELETE, "/api/consulta/**").authenticated()
+                    .antMatchers(HttpMethod.PUT, "/api/consulta/**").permitAll()        //Auth
+                    .antMatchers(HttpMethod.DELETE, "/api/consulta/**").permitAll()     //Auth
 
                     // roles
                     .antMatchers(HttpMethod.POST, "/api/paciente/role/**").permitAll()
 
-                    .anyRequest().denyAll()
+                    .anyRequest().permitAll()
                 .and()
                     .csrf().disable()
                     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                    .headers().frameOptions().disable()    
-                .and()
-                    .addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+                    .headers().frameOptions().disable();    
+                // .and()
+                //     .addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
