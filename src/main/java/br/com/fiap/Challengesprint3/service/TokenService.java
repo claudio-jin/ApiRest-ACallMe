@@ -33,6 +33,8 @@ public class TokenService {
 
     //Autenticação do token pelo subject (Valor contido no subject é o email)
     public Authentication getAuthenticationToken(String token) {
+        //Retorna o valor do subject
+        //Quando geramos o token colocamos pra receber o email
         String email = JWT.require(Algorithm.HMAC512("secret")).build().verify(token).getSubject();
         
         Optional<Usuario> optional = repository.findByEmail(email);

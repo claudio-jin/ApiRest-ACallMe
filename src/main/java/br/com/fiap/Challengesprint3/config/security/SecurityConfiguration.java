@@ -19,17 +19,40 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.httpBasic()
                 .and()
-                .authorizeHttpRequests()
-                .antMatchers(HttpMethod.GET, "/api/paciente/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/paciente").permitAll()
-                .antMatchers(HttpMethod.PUT, "/api/paciente/**").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/paciente/**").authenticated()
-                .antMatchers(HttpMethod.POST, "/api/paciente/role/**").permitAll()
-                .anyRequest().permitAll()
+                    .authorizeHttpRequests()
+
+                    //Login -> criação de token
+                    .antMatchers(HttpMethod.POST, "/api/auth").permitAll()
+
+                    // paciente
+                    .antMatchers(HttpMethod.GET, "/api/paciente/**").permitAll()
+                    .antMatchers(HttpMethod.POST, "/api/paciente").permitAll()
+                    .antMatchers(HttpMethod.PUT, "/api/paciente/**").authenticated()
+                    .antMatchers(HttpMethod.DELETE, "/api/paciente/**").authenticated()
+
+                    // EspecialistaPf
+                    .antMatchers(HttpMethod.GET, "/api/especialistaPf/**").permitAll()
+                    .antMatchers(HttpMethod.POST, "/api/especialistaPf").permitAll()
+                    .antMatchers(HttpMethod.PUT, "/api/especialistaPf/**").authenticated()
+                    .antMatchers(HttpMethod.DELETE, "/api/especialistaPf/**").authenticated()
+
+                    // EspecialistaPj
+                    .antMatchers(HttpMethod.GET, "/api/especialistaPj/**").permitAll()
+                    .antMatchers(HttpMethod.POST, "/api/especialistaPj").permitAll()
+                    .antMatchers(HttpMethod.PUT, "/api/especialistaPj/**").authenticated()
+                    .antMatchers(HttpMethod.DELETE, "/api/especialistaPj/**").authenticated()
+
+                    // roles
+                    .antMatchers(HttpMethod.POST, "/api/paciente/role/**").permitAll()
+
+                    .anyRequest().denyAll()
                 .and()
-                .addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                    .csrf().disable()
+                    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                    .headers().frameOptions().disable()    
+                .and()
+                    .addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
@@ -39,7 +62,7 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager( AuthenticationConfiguration config) throws Exception{
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 }

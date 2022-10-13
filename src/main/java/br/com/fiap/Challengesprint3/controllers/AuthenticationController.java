@@ -36,7 +36,7 @@ public class AuthenticationController {
 
             // gerar o token
             // Tempo de expiração do token
-            Date issuedAt = new Date();
+            Date issuedAt = new Date(System.currentTimeMillis());
             Date expiresAt = new Date(issuedAt.getTime() + 60_000);
             // Montando o token
             String token = JWT.create()

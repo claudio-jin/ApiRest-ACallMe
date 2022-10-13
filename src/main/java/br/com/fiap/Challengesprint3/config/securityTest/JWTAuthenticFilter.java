@@ -1,5 +1,5 @@
-package br.com.fiap.Challengesprint3.config.securityTest;
-// package br.com.fiap.Challengesprint3.config.security;
+// package br.com.fiap.Challengesprint3.config.securityTest;
+
 
 // import java.util.ArrayList;
 // import java.util.Date;
@@ -14,7 +14,7 @@ package br.com.fiap.Challengesprint3.config.securityTest;
 // import org.springframework.stereotype.Component;
 // import org.springframework.stereotype.Service;
 
-// import br.com.fiap.Challengesprint3.ApplicationContextLoad;
+// //import br.com.fiap.Challengesprint3.ApplicationContextLoad;
 // import br.com.fiap.Challengesprint3.models.Paciente;
 // import br.com.fiap.Challengesprint3.repository.PacienteRepository;
 // import io.jsonwebtoken.Jwts;

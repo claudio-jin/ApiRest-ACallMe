@@ -1,5 +1,4 @@
-package br.com.fiap.Challengesprint3.config.securityTest;
-// package br.com.fiap.Challengesprint3.config.security;
+// package br.com.fiap.Challengesprint3.config.securityTest;
 
 // import java.io.IOException;
 // import java.util.ArrayList;
@@ -16,7 +15,7 @@ package br.com.fiap.Challengesprint3.config.securityTest;
 
 // import com.auth0.jwt.JWT;
 // import com.auth0.jwt.algorithms.Algorithm;
-// video experts java
+// //video experts java
 // public class JWTValidFilter extends BasicAuthenticationFilter{
 
 //     public static final String HEADER_ATRIBUTO = "Authorization";

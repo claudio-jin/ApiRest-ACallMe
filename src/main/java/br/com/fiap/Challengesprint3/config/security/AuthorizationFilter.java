@@ -21,12 +21,13 @@ public class AuthorizationFilter extends OncePerRequestFilter {
         String header = request.getHeader("Authorization");
 
         // validar o token
-        if (header == null || header.isEmpty() || !header.startsWith("Bearer "))
-            return;
+        if (header == null || header.isEmpty() || !header.startsWith("Bearer ")) return;
         var service = new TokenService();
         //Separa o token do prefixo bearer e atribui a variavel token
         String token = header.substring(7);
 
+        //Se a validação do token for true entao ele passa o processo
+        //de autenticação para o spring security
         if (service.validate(token)) {
             SecurityContextHolder.getContext().setAuthentication(service.getAuthenticationToken(token));
         }
