@@ -34,8 +34,8 @@ public class Consulta {
     @OneToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Prontuario prontuario;
 
-    // @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
-    // private Paciente paciente;
+    @ManyToOne( cascade = CascadeType.ALL, fetch = FetchType.EAGER) 
+    private Paciente paciente;
 
     public Consulta() {
         
@@ -58,6 +58,17 @@ public class Consulta {
         this.espePf = espePf;
         this.espePj = espePj;
         this.prontuario = prontuario;
+    }
+
+    public Consulta(Long codConsulta, Double valorConfirmado, Date dtConsulta, EspecialistaPf espePf,
+            EspecialistaPj espePj, Prontuario prontuario, Paciente paciente) {
+        this.codConsulta = codConsulta;
+        this.valorConfirmado = valorConfirmado;
+        this.dtConsulta = dtConsulta;
+        this.espePf = espePf;
+        this.espePj = espePj;
+        this.prontuario = prontuario;
+        this.paciente = paciente;
     }
 
     public Long getCodConsulta() {
@@ -107,6 +118,14 @@ public class Consulta {
 
     public void setProntuario(Prontuario prontuario) {
         this.prontuario = prontuario;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     

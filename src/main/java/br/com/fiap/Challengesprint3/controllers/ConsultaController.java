@@ -23,6 +23,8 @@ import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaDtoEspecialistaPj;
 import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaProntuarioDto;
 import br.com.fiap.Challengesprint3.models.Consulta;
 import br.com.fiap.Challengesprint3.services.ConsultaService;
+import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaComPacienteEEspecialistaPf;
+import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaComPacienteEEspecialistaPj;
 
 @RestController
 @RequestMapping("/api/consulta")
@@ -37,6 +39,20 @@ public class ConsultaController {
         return ResponseEntity
                     .status(HttpStatus.CREATED)
                     .body(consulta);
+    }
+
+    //Salvar consulta com paciente e especialistaPf
+    @PostMapping("/salvarConsultaComPacienteEspPf")
+    public ResponseEntity<ConsultaComPacienteEEspecialistaPf> createConsultaPacienteEspPf(@RequestBody @Valid ConsultaComPacienteEEspecialistaPf dto) {
+        consultaService.createConsultaComPacienteEspPf(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+    }
+
+    //Salvar consulta com paciente e especialistaPj
+    @PostMapping("/salvarConsultaComPacienteEspPf")
+    public ResponseEntity<ConsultaComPacienteEEspecialistaPj> createConsultaPacienteEspPj(@RequestBody @Valid ConsultaComPacienteEEspecialistaPj dto) {
+        consultaService.createConsultaComPacienteEspPj(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
     @GetMapping
