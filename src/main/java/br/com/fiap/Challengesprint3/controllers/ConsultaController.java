@@ -29,7 +29,7 @@ import br.com.fiap.Challengesprint3.dto.ConsultaDtos.ConsultaComPacienteEEspecia
 @RestController
 @RequestMapping("/api/consulta")
 public class ConsultaController {
-    
+
     @Autowired
     ConsultaService consultaService;
 
@@ -37,20 +37,22 @@ public class ConsultaController {
     public ResponseEntity<Consulta> create(@RequestBody @Valid Consulta consulta) {
         consultaService.save(consulta);
         return ResponseEntity
-                    .status(HttpStatus.CREATED)
-                    .body(consulta);
+                .status(HttpStatus.CREATED)
+                .body(consulta);
     }
 
-    //Salvar consulta com paciente e especialistaPf
+    // Salvar consulta com paciente e especialistaPf
     @PostMapping("/salvarConsultaComPacienteEspPf")
-    public ResponseEntity<ConsultaComPacienteEEspecialistaPf> createConsultaPacienteEspPf(@RequestBody @Valid ConsultaComPacienteEEspecialistaPf dto) {
+    public ResponseEntity<ConsultaComPacienteEEspecialistaPf> createConsultaPacienteEspPf(
+            @RequestBody @Valid ConsultaComPacienteEEspecialistaPf dto) {
         consultaService.createConsultaComPacienteEspPf(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
 
-    //Salvar consulta com paciente e especialistaPj
+    // Salvar consulta com paciente e especialistaPj
     @PostMapping("/salvarConsultaComPacienteEspPj")
-    public ResponseEntity<ConsultaComPacienteEEspecialistaPj> createConsultaPacienteEspPj(@RequestBody @Valid ConsultaComPacienteEEspecialistaPj dto) {
+    public ResponseEntity<ConsultaComPacienteEEspecialistaPj> createConsultaPacienteEspPj(
+            @RequestBody @Valid ConsultaComPacienteEEspecialistaPj dto) {
         consultaService.createConsultaComPacienteEspPj(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
     }
@@ -64,9 +66,9 @@ public class ConsultaController {
     public ResponseEntity<Consulta> updateConsulta(@PathVariable Long id, @RequestBody @Valid Consulta novaConsulta) {
         var optional = consultaService.getById(id);
 
-        if(optional.isEmpty()){
+        if (optional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
+        }
 
         var consulta = optional.get();
         BeanUtils.copyProperties(novaConsulta, consulta);
@@ -77,23 +79,23 @@ public class ConsultaController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Consulta> getConsultaById(@PathVariable Long id){
+    public ResponseEntity<Consulta> getConsultaById(@PathVariable Long id) {
         return ResponseEntity.of(consultaService.getById(id));
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Object> deleteConsultaById(@PathVariable Long id){
+    public ResponseEntity<Object> deleteConsultaById(@PathVariable Long id) {
         var optional = consultaService.getById(id);
 
-        if(optional.isEmpty()) {
+        if (optional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
+        }
 
-    	consultaService.remove(id);
+        consultaService.remove(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    @GetMapping("/consultaDto") 
+    @GetMapping("/consultaDto")
     public List<ConsultaDto> getConsultaDto() {
         return consultaService.getConsultaDto();
     }

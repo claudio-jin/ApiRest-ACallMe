@@ -17,45 +17,48 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Paciente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nomePaciente;
-	
+
 	private String email;
-	
-	@JsonFormat(pattern="dd/MM/yyyy")
+
+	private String senha;
+
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dtNascimento;
-	
+
 	private Integer cpf;
-	
+
 	private Integer digitoCpf;
-	
+
 	private Integer telefoneDDD;
-	
+
 	private Integer telefone;
-	
+
 	private String estadoCivil;
-	
+
 	private String profissao;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Genero genero;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 
-	//Relação consulta para puxar consultas
+	// Relação consulta para puxar consultas
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Consulta> consulta;
-	
-	public Paciente () {
-		
+
+	public Paciente() {
+
 	}
 
-	public Paciente(Long id, String nomePaciente, String email, Date dtNascimento, Integer cpf, Integer digitoCpf,
+	public Paciente(Long id, String nomePaciente, String email, String senha, Date dtNascimento, Integer cpf,
+			Integer digitoCpf,
 			Integer telefoneDDD, Integer telefone, String estadoCivil, String profissao, Genero genero,
 			Endereco endereco, List<Consulta> consulta) {
 		this.id = id;
@@ -71,6 +74,7 @@ public class Paciente {
 		this.genero = genero;
 		this.endereco = endereco;
 		this.consulta = consulta;
+		this.senha = senha;
 	}
 
 	public Long getId() {
@@ -95,6 +99,14 @@ public class Paciente {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public Date getDtNascimento() {
@@ -164,7 +176,7 @@ public class Paciente {
 	public Endereco getEndereco() {
 		return endereco;
 	}
-	
+
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
@@ -177,6 +189,4 @@ public class Paciente {
 		this.consulta = consulta;
 	}
 
-
-	
 }
