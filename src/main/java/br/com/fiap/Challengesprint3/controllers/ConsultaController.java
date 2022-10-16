@@ -49,7 +49,7 @@ public class ConsultaController {
     }
 
     //Salvar consulta com paciente e especialistaPj
-    @PostMapping("/salvarConsultaComPacienteEspPf")
+    @PostMapping("/salvarConsultaComPacienteEspPj")
     public ResponseEntity<ConsultaComPacienteEEspecialistaPj> createConsultaPacienteEspPj(@RequestBody @Valid ConsultaComPacienteEEspecialistaPj dto) {
         consultaService.createConsultaComPacienteEspPj(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(dto);
