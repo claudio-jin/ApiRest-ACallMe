@@ -1,5 +1,12 @@
 # Enterprise-Claudio-Challenge.pt3
 
+turma: 2TDSH
+grupo:
+Daniel Augusto - RM88397
+Guilherme Arevalo - RM89072
+Cláudio Jin - RM88249
+João Henrique - RM88822
+
 especialistaPj
 
 ```
