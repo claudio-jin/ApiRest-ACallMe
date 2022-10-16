@@ -2,14 +2,18 @@
 
 Turma: 2TDSH
 <br/>
-Grupo:
 <br/>
+Grupo:<br/>
 Daniel Augusto - RM88397<br/>
 Guilherme Arevalo - RM89072<br/>
 Cláudio Jin - RM88249<br/>
 João Henrique - RM88822<br/>
-<br/>
 
+<br/>
+Link Backend: https://github.com/Polaris-Fiap/Enterprise-Claudio-Challenge.pt3<br/>
+link Frontend: https://github.com/Polaris-Fiap/frontend-clg<br/>
+link video: https://www.youtube.com/watch?v=9KJefRAuzHQ<br/>
+<br/>
 especialistaPj
 
 ```
